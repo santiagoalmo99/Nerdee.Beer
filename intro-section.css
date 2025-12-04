@@ -1,0 +1,279 @@
+/* ==================== NEW INTRO SECTION (What is Nerdee?) ==================== */
+.section-intro {
+    padding: 120px 24px;
+}
+
+.intro-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    max-width: 600px;
+}
+
+.section-label {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    color: #10b981;
+    margin-bottom: 24px;
+}
+
+.intro-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.intro-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 48px;
+}
+
+.intro-description strong {
+    color: #fff;
+}
+
+.intro-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.benefit-icon {
+    width: 40px;
+    height: 40px;
+    fill: #10b981;
+    flex-shrink: 0;
+}
+
+.benefit-item strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.benefit-item p {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+}
+
+/* Data Flow Widget */
+.intro-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-flow-widget {
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
+.flow-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border: 2px solid rgba(16, 185, 129, 0.4);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.center-pulse {
+    position: absolute;
+    inset: -4px;
+    border-radius: 24px;
+    background: rgba(16, 185, 129, 0.3);
+    animation: centerPulse 2s ease-in-out infinite;
+}
+
+@keyframes centerPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+}
+
+.center-icon {
+    width: 32px;
+    height: 32px;
+    fill: #10b981;
+    z-index: 1;
+}
+
+.center-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #10b981;
+    z-index: 1;
+}
+
+/* Flow Nodes */
+.flow-nodes {
+    position: absolute;
+    inset: 0;
+}
+
+.flow-node {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+    transform: 
+        translateX(-50%) 
+        translateY(-50%) 
+        rotate(var(--angle)) 
+        translateY(-200px) 
+        rotate(calc(-1 * var(--angle)));
+    
+    width: 100px;
+    padding: 16px 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    text-align: center;
+    
+    opacity: 0;
+    animation: nodeAppear 0.6s ease forwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes nodeAppear {
+    from {
+        opacity: 0;
+        transform: 
+            translateX(-50%) 
+            translateY(-50%) 
+            rotate(var(--angle)) 
+            translateY(-180px) 
+            rotate(calc(-1 * var(--angle))) 
+            scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: 
+            translateX(-50%) 
+            translateY(-50%) 
+            rotate(var(--angle)) 
+            translateY(-200px) 
+            rotate(calc(-1 * var(--angle))) 
+            scale(1);
+    }
+}
+
+.flow-node svg {
+    width: 32px;
+    height: 32px;
+    fill: #10b981;
+    margin-bottom: 8px;
+}
+
+.flow-node span {
+    display: block;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+}
+
+/* Data Particles */
+.data-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    
+    animation: particleFlow var(--duration) linear infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes particleFlow {
+    0% {
+        transform: 
+            translateX(-50%) 
+            translateY(-50%) 
+            rotate(var(--angle)) 
+            translateY(60px);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: 
+            translateX(-50%) 
+            translateY(-50%) 
+            rotate(var(--angle)) 
+            translateY(200px);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .intro-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    
+    .data-flow-widget {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    
+    .flow-node {
+        transform: 
+            translateX(-50%) 
+            translateY(-50%) 
+            rotate(var(--angle)) 
+            translateY(-160px) 
+            rotate(calc(-1 * var(--angle)));
+    }
+}
