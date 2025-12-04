@@ -1547,11 +1547,11 @@ body {
 /* Modules Container */
 .modules-container {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 60px auto 0;
 }
 
 .modules-section {
-    margin-bottom: 64px;
+    margin-bottom: 80px;
 }
 
 .modules-section.coming-soon {
@@ -1564,8 +1564,8 @@ body {
     gap: 12px;
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 32px;
-    padding-bottom: 16px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
