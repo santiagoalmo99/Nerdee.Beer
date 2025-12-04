@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Nerdee - Distribuidora de Cervezas Artesanales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="propuesta.css">
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-rays"></div>
+        <div class="hero-content">
+            <span class="hero-label">Propuesta de Implementación</span>
+            <h1 class="hero-title">
+                <span>El cerebro digital para</span>
+                <span class="gradient-text">tu distribución de cervezas</span>
+            </h1>
+            <p class="hero-subtitle">Módulo especializado + Suscripción Nerdee</p>
+            
+            <!-- Beer Bottles Widget -->
+            <div class="beer-widget">
+                <div class="bottle-showcase">
+                    <div class="bottle" style="--delay: 0s">
+                        <div class="bottle-liquid amber"></div>
+                        <div class="bottle-label">IPA</div>
+                    </div>
+                    <div class="bottle" style="--delay: 0.2s">
+                        <div class="bottle-liquid dark"></div>
+                        <div class="bottle-label">Stout</div>
+                    </div>
+                    <div class="bottle" style="--delay: 0.4s">
+                        <div class="bottle-liquid light"></div>
+                        <div class="bottle-label">Lager</div>
+                    </div>
+                    <div class="bottle" style="--delay: 0.6s">
+                        <div class="bottle-liquid wheat"></div>
+                        <div class="bottle-label">Wheat</div>
+                    </div>
+                </div>
+                <div class="analysis-overlay">
+                    <div class="data-point">
+                        <span class="value">127</span>
+                        <span class="label">SKUs Activos</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="value">98%</span>
+                        <span class="label">Precision Match</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Descripción General -->
+    <section class="section-dark section-intro">
+        <div class="container">
+            <div class="intro-layout">
+                <div class="intro-text">
+                    <span class="section-label">¿Qué es Nerdee?</span>
+                    <h2 class="intro-title">
+                        El cerebro digital que<br>
+                        <span class="gradient-text">unifica tu operación</span>
+                    </h2>
+                    <p class="intro-description">
+                        Nerdee integra, analiza y conecta <strong>todas las áreas de tu empresa</strong> 
+                        en un solo sistema inteligente, entregando <strong>insights accionables en tiempo real</strong>.
+                    </p>
+                    
+                    <div class="intro-benefits">
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <div>
+                                <strong>Integración Total</strong>
+                                <p>Conecta inventarios, ventas, finanzas, clientes y más</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/></svg>
+                            <div>
+                                <strong>Inteligencia en Vivo</strong>
+                                <p>Datos actualizados y análisis predictivo constante</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
+                            <div>
+                                <strong>Optimización Continua</strong>
+                                <p>El sistema aprende y mejora con cada operación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="intro-visual">
+                    <!-- Data Flow Widget -->
+                    <div class="data-flow-widget">
+                        <div class="flow-center">
+                            <div class="center-pulse"></div>
+                            <svg class="center-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <span class="center-label">NERDEE</span>
+                        </div>
+                        
+                        <div class="flow-nodes">
+                            <div class="flow-node" style="--angle: 0deg; --delay: 0s">
+                                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-5 12H9v-2h6v2zm5-7H4V4h16v3z"/></svg>
+                                <span>Inventario</span>
+                            </div>
+                            <div class="flow-node" style="--angle: 60deg; --delay: 0.1s">
+                                <svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
+                                <span>Ventas</span>
+                            </div>
+                            <div class="flow-node" style="--angle: 120deg; --delay: 0.2s">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                                <span>Finanzas</span>
+                            </div>
+                            <div class="flow-node" style="--angle: 180deg; --delay: 0.3s">
+                                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                                <span>Clientes</span>
+                            </div>
+                            <div class="flow-node" style="--angle: 240deg; --delay: 0.4s">
+                                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                                <span>SAC</span>
+                            </div>
+                            <div class="flow-node" style="--angle: 300deg; --delay: 0.5s">
+                                <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                                <span>Logística</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Animated data particles -->
+                        <div class="data-particles">
+                            <div class="particle" style="--angle: 0deg; --duration: 3s"></div>
+                            <div class="particle" style="--angle: 60deg; --duration: 2.5s"></div>
+                            <div class="particle" style="--angle: 120deg; --duration: 3.5s"></div>
+                            <div class="particle" style="--angle: 180deg; --duration: 2.8s"></div>
+                            <div class="particle" style="--angle: 240deg; --duration: 3.2s"></div>
+                            <div class="particle" style="--angle: 300deg; --duration: 2.7s"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulo Especializado -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Módulo Especializado</h2>
+            <p class="section-intro">Diseñado específicamente para distribución de cervezas artesanales</p>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon-mono" viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                    </div>
+                    <h3>Motor Inteligente</h3>
+                    <p>Analiza características de cerveza: sabor, color, cuerpo, estilo, ABV, amargor.</p>
+                    <div class="feature-highlight">
+                        <span class="pulse-dot amber"></span> Análisis en tiempo real
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon-mono" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h3>Correlación Cliente-Producto</h3>
+                    <p>Modelo que correlaciona características con tipos de restaurantes y segmentos de cliente.</p>
+                    <div class="feature-highlight">
+                        <span class="pulse-dot green"></span> 98% precisión
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon-mono" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <h3>Sistema de Recomendaciones</h3>
+                    <p>Asesoría inteligente a restaurantes según lo que mejor funciona en su tipo de negocio.</p>
+                    <div class="feature-highlight">
+                        <span class="pulse-dot amber"></span> +40% conversión
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon-mono" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                    <h3>Clasificación Automática</h3>
+                    <p>Identificación interna de qué marcas corresponden a cada grupo de características.</p>
+                    <div class="feature-highlight">
+                        <span class="pulse-dot green"></span> 100% automatizado
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon-mono" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                    </div>
+                    <h3>Panel de Insights</h3>
+                    <p>Dashboard con insights accionables para el equipo comercial y gerencia.</p>
+                    <div class="feature-highlight">
+                        <span class="pulse-dot green"></span> Datos en vivo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Mockup -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Panel de Control Especializado</h2>
+            
+            <div class="dashboard-mockup">
+                <div class="mockup-window">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="mockup-title">NERDEE × Distribuidora</span>
+                        <div class="status-badge live">
+                            <span class="status-dot"></span> En Vivo
+                        </div>
+                    </div>
+                    <div class="mockup-body">
+                        <h3>Recomendaciones Inteligentes</h3>
+                        
+                        <!-- Recommendation Widget -->
+                        <div class="recommendation-widget">
+                            <div class="restaurant-profile">
+                                <div class="profile-icon">
+                                    <svg class="icon-mono" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                                </div>
+                                <div class="profile-info">
+                                    <strong>Restaurante Gourmet - Zona Rosa</strong>
+                                    <small>Cocina Internacional · Alta gama</small>
+                                </div>
+                            </div>
+                            
+                            <div class="recommended-beers">
+                                <div class="beer-match">
+                                    <div class="match-score">96%</div>
+                                    <div class="beer-info">
+                                        <strong>IPA Artesanal Premium</strong>
+                                        <div class="beer-attrs">
+                                            <span class="attr">Amarga</span>
+                                            <span class="attr">Floral</span>
+                                            <span class="attr">6.5% ABV</span>
+                                        </div>
+                                    </div>
+                                    <div class="match-reason">Perfil sofisticado, marida con cocina gourmet</div>
+                                </div>
+                                
+                                <div class="beer-match">
+                                    <div class="match-score">89%</div>
+                                    <div class="beer-info">
+                                        <strong>Sour Ale Tropical</strong>
+                                        <div class="beer-attrs">
+                                            <span class="attr">Ácida</span>
+                                            <span class="attr">Frutal</span>
+                                            <span class="attr">5.2% ABV</span>
+                                        </div>
+                                    </div>
+                                    <div class="match-reason">Aperitivo ideal, atrae público jóven</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stats Grid -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-value">$47.2M</div>
+                                <div class="stat-label">Ventas Este Mes</div>
+                                <div class="stat-change positive">+18.5%</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">342</div>
+                                <div class="stat-label">Clientes Activos</div>
+                                <div class="stat-change positive">+23</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">127</div>
+                                <div class="stat-label">SKUs Disponibles</div>
+                                <div class="stat-change">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mockup-footer-green">
+                        <span>Sistema Operando · Última actualización: hace 2 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Suscripción Mensual Nerdee</h2>
+            <p class="section-intro">Acceso completo a todos los módulos + actualizaciones continuas</p>
+            
+            <div class="modules-grid">
+                <div class="module-card active">
+                    <div class="module-icon">
+                        <svg class="icon-module" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                    </div>
+                    <h4>Finanzas</h4>
+                    <span class="status-badge-sm">Activo</span>
+                </div>
+                <div class="module-card active">
+                    <div class="module-icon">
+                        <svg class="icon-module" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    </div>
+                    <h4>Marketing</h4>
+                    <span class="status-badge-sm">Activo</span>
+                </div>
+                <div class="module-card active">
+                    <div class="module-icon">
+                        <svg class="icon-module" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                    </div>
+                    <h4>SAC</h4>
+                    <span class="status-badge-sm">Activo</span>
+                </div>
+                <div class="module-card active">
+                    <div class="module-icon">
+                        <svg class="icon-module" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                    </div>
+                    <h4>Growth</h4>
+                    <span class="status-badge-sm">Activo</span>
+                </div>
+                <div class="module-card active">
+                    <div class="module-icon">
+                        <svg class="icon-module" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                    </div>
+                    <h4>Data</h4>
+                    <span class="status-badge-sm">Activo</span>
+                </div>
+                <div class="module-card coming">
+                    <div class="module-icon">
+                        <svg class="icon-module" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <h4>RRHH</h4>
+                    <span class="status-badge-sm soon">Próximamente</span>
+                </div>
+                <div class="module-card coming">
+                    <div class="module-icon">
+                        <svg class="icon-module" viewBox="0 0 24 24"><path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-5 12H9v-2h6v2zm5-7H4V4h16v3z"/></svg>
+                    </div>
+                    <h4>Inventarios</h4>
+                    <span class="status-badge-sm soon">Próximamente</span>
+                </div>
+                <div class="module-card coming">
+                    <div class="module-icon">
+                        <svg class="icon-module" viewBox="0 0 24 24"><path d="M21 7.28V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-2.28c.59-.35 1-.98 1-1.72V9c0-.74-.41-1.37-1-1.72zM20 9v6h-7V9h7zM5 19V5h14v2h-6c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h6v2H5z"/><circle cx="16" cy="12" r="1.5"/></svg>
+                    </div>
+                    <h4>Cierre de Caja</h4>
+                    <span class="status-badge-sm soon">Próximamente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section-pricing">
+        <div class="purple-glow"></div>
+        <div class="container">
+            <h2 class="section-title">Inversión</h2>
+            
+            <div class="pricing-grid">
+                <!-- Módulo Especializado -->
+                <div class="pricing-card highlight">
+                    <div class="pricing-badge">Una vez</div>
+                    <h3>Módulo Especializado</h3>
+                    <p>Desarrollo personalizado para distribución de cervezas</p>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">3.500.000</span>
+                        <span class="period">COP</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Motor inteligente de análisis
+                        </li>
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Sistema de recomendaciones
+                        </li>
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Panel de insights
+                        </li>
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Integración completa
+                        </li>
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            3 semanas de desarrollo
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Suscripción -->
+                <div class="pricing-card">
+                    <div class="pricing-badge recurring">Mensual</div>
+                    <h3>Suscripción Nerdee</h3>
+                    <p>Acceso completo a todos los módulos actuales y futuros</p>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">690.000</span>
+                        <span class="period">COP/mes</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            5 módulos activos
+                        </li>
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Actualizaciones continuas
+                        </li>
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Nuevos módulos incluidos
+                        </li>
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Soporte prioritario
+                        </li>
+                        <li>
+                            <svg class="icon-mono-sm" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            IA que mejora con uso
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="pricing-note">* Valores + IVA</p>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Tiempo de Desarrollo</h2>
+            <p class="section-intro">3 semanas con reuniones semanales de avance</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker week-1">
+                        <span class="week-num">1</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Semana 1: Inicio</h4>
+                        <ul>
+                            <li>Reunión de onboarding</li>
+                            <li>Integración de datos</li>
+                            <li>Configuración inicial</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker week-2">
+                        <span class="week-num">2</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Semana 2: Desarrollo</h4>
+                        <ul>
+                            <li>Construcción del motor</li>
+                            <li>Sistema de recomendaciones</li>
+                            <li>Primera revisión</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker week-3">
+                        <span class="week-num">3</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Semana 3: Entrega</h4>
+                        <ul>
+                            <li>Pruebas y validación</li>
+                            <li>Ajustes finales</li>
+                            <li>Capacitación del equipo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-timeline">
+                <div class="progress-bar-container">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Inicio</span>
+                    <span>Desarrollo</span>
+                    <span>Entrega</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section-cta">
+        <div class="container">
+            <div class="cta-header">
+                <h2>¿Listo para Transformar tu Distribución?</h2>
+                <p class="cta-subtext">Sigue estos pasos para comenzar tu implementación</p>
+            </div>
+            
+            <div class="steps-flow">
+                
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                    <div class="step-number">1</div>
+                    <h3>Aprobación</h3>
+                    <p>Revisión y aprobación de la propuesta</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </div>
+                    <div class="step-number">2</div>
+                    <h3>Firma del Acuerdo</h3>
+                    <p>Formalización del acuerdo comercial</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <div class="step-number">3</div>
+                    <h3>Onboarding</h3>
+                    <p>Reunión inicial del equipo</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+                    </div>
+                    <div class="step-number">4</div>
+                    <h3>Desarrollo</h3>
+                    <p>Construcción del módulo especializado</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <div class="step-number">5</div>
+                    <h3>Validación</h3>
+                    <p>Pruebas internas y ajustes</p>
+                </div>
+
+                <div class="step-card highlight">
+                    <div class="step-icon-wrapper">
+                        <svg class="step-icon" viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                    </div>
+                    <div class="step-number">6</div>
+                    <h3>Entrega & Capacitación</h3>
+                    <p>Implementación final y formación del equipo</p>
+                </div>
+            </div>
+
+            <div class="cta-action">
+                <p class="cta-ready">¿Todo claro? Comencemos</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.link/t5481j" class="cta-button primary">
+                        <svg class="button-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Aprobar Propuesta
+                    </a>
+                    <a href="mailto:contacto@ommeo.com" class="cta-button secondary">
+                        <svg class="button-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        Solicitar Reunión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">⚡ NERDEE</span>
+                <span class="footer-tagline">El cerebro digital para tu empresa</span>
+            </div>
+            <p class="copyright">© 2025 Nerdee. Propuesta confidencial.</p>
+        </div>
+    </footer>
+
+    <script src="propuesta.js"></script>
+</body>
+</html>
