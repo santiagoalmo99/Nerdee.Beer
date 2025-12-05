@@ -121,20 +121,20 @@ body {
     inset: 0;
     background-size: 200% 200%;
     background-image: 
-        /* Purple/Wine - Left (30% more saturated) */
-        linear-gradient(25deg, transparent 0%, rgba(139, 92, 246, 0.16) 8%, transparent 18%),
-        /* Emerald - Left */
-        linear-gradient(45deg, transparent 0%, rgba(34, 197, 94, 0.15) 12%, transparent 25%),
+        /* Purple/Wine - Left (extended width, more visible) */
+        linear-gradient(25deg, transparent 0%, rgba(139, 92, 246, 0.18) 10%, transparent 25%),
+        /* Emerald - Left (reduced) */
+        linear-gradient(45deg, transparent 0%, rgba(34, 197, 94, 0.10) 10%, transparent 22%),
         /* Amber - Left */
         linear-gradient(65deg, transparent 0%, rgba(245, 158, 11, 0.12) 15%, transparent 30%),
-        /* Purple/Wine - Right (Mirror, 30% more saturated) */
+        /* Purple/Wine - Right (Mirror) */
         linear-gradient(335deg, transparent 0%, rgba(139, 92, 246, 0.16) 8%, transparent 18%),
         /* Emerald - Right (Mirror) */
         linear-gradient(315deg, transparent 0%, rgba(34, 197, 94, 0.15) 12%, transparent 25%),
         /* Amber - Right (Mirror) */
         linear-gradient(295deg, transparent 0%, rgba(245, 158, 11, 0.12) 15%, transparent 30%);
     
-    /* 30% faster movement (12s → 8s) */
+    /* 30% faster movement */
     animation: raysPan 8s ease-in-out infinite alternate;
     filter: saturate(1.8) brightness(1.1);
     z-index: 1;
