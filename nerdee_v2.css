@@ -1864,16 +1864,18 @@ body {
 /* ==================== CRITICAL FIXES (Added manually) ==================== */
 
 /* FIX: Expand intro section container */
-.section-intro .container {
-    max-width: 1800px !important;
-    width: 95% !important;
+.section-intro, .section-intro .container {
+    max-width: 100% !important;
+    width: 100% !important;
     padding: 0;
+    margin: 0;
 }
 
 /* FIX: Ensure intro text is not too wide but container is */
-.intro-text {
-    max-width: 650px; /* Optimal reading width */
-    margin-right: auto; /* Align left with widget on right */
+.intro-text, .nexus-header {
+    max-width: 800px; /* Optimal reading width */
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* FIX: Mobile Responsiveness */
