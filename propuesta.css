@@ -1259,19 +1259,33 @@ body {
 /* ==================== NEW INTRO SECTION (What is Nerdee?) ==================== */
 .section-intro {
     padding: var(--space-10) var(--space-3);  /* 80px 24px */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Enhanced background effect */
+.section-intro::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
+    filter: blur(60px);
+    opacity: 0.8;
 }
 
 .intro-layout {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;  /* More space for text */
-    gap: var(--space-8);  /* 64px - balanced */
+    grid-template-columns: 1fr 1fr;  /* Equal columns for better balance */
+    gap: var(--space-10);  /* 80px - more breathing room */
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .intro-text {
-    max-width: 650px;  /* Increased for better text flow */
+    max-width: 550px;  /* Narrower for better line length */
 }
 
 .section-label {
@@ -1286,17 +1300,17 @@ body {
 }
 
 .intro-title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);  /* Slightly smaller */
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);  /* Smaller for compactness */
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     margin-bottom: var(--space-2);  /* 16px */
 }
 
 .intro-description {
-    font-size: 1rem;  /* Slightly smaller for better fit */
+    font-size: 0.9375rem;  /* Smaller for better fit */
     line-height: 1.6;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: var(--space-4);  /* 32px */
+    color: rgba(255,255,255,0.75);
+    margin-bottom: var(--space-3);  /* 24px - reduced */
 }
 
 .intro-description strong {
@@ -1306,32 +1320,32 @@ body {
 .intro-benefits {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);  /* 16px - more compact */
+    gap: var(--space-2);  /* 16px - compact */
 }
 
 .benefit-item {
     display: flex;
-    gap: 16px;
+    gap: var(--space-2);  /* 16px */
     align-items: flex-start;
 }
 
 .benefit-icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;  /* Smaller icon */
+    height: 32px;
     fill: #10b981;
     flex-shrink: 0;
 }
 
 .benefit-item strong {
     display: block;
-    font-size: 0.9375rem;  /* Slightly smaller */
+    font-size: 0.875rem;  /* Smaller */
     margin-bottom: var(--space-1);  /* 8px */
     color: #fff;
 }
 
 .benefit-item p {
-    font-size: 0.875rem;  /* Smaller for compactness */
-    color: rgba(255,255,255,0.6);
+    font-size: 0.8125rem;  /* Smaller for compactness */
+    color: rgba(255,255,255,0.65);
     line-height: 1.5;
 }
 
