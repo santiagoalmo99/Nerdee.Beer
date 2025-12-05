@@ -1860,3 +1860,74 @@ body {
         justify-content: center;
     }
 }
+
+/* ==================== CRITICAL FIXES (Added manually) ==================== */
+
+/* FIX: Expand intro section container */
+.section-intro .container {
+    max-width: 1800px !important;
+    width: 95% !important;
+    padding: 0;
+}
+
+/* FIX: Mobile Responsiveness */
+@media (max-width: 968px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .intro-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 100%;
+    }
+    
+    .intro-text {
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .intro-benefits {
+        align-items: center;
+        text-align: left;
+    }
+
+    .data-flow-widget {
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+        margin: 0 auto;
+        transform: scale(0.9);
+    }
+    
+    .flow-node {
+        transform: 
+            translateX(-50%) 
+            translateY(-50%) 
+            rotate(var(--angle)) 
+            translateY(-140px) 
+            rotate(calc(-1 * var(--angle)));
+        width: 90px;
+        padding: 12px 8px;
+        font-size: 0.75rem;
+    }
+
+    .section-subscription {
+        padding: 48px 16px;
+        height: auto;
+        min-height: auto;
+    }
+
+    .active-modules {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+    }
+
+    .subscription-benefits {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+}
