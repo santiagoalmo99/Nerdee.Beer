@@ -96,243 +96,24 @@ body {
     background: #000;
 }
 
-.hero-rays {
+/* [Cleaned Up] */
+
+/* Status Monitor Text - Positioned cleanly below core */
+.nexus-monitor {
     position: absolute;
-    inset: 0;
-}
-/* ==================== SPLIT LAYOUT (UNIFIED DESIGN) ==================== */
-
-.neural-nexus-container.split-layout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-    padding: 60px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Left Column: Content */
-.nexus-content-side {
-    flex: 1;
-    max-width: 550px;
-    z-index: 20;
-}
-
-.section-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: 20px;
-    color: #10b981;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 24px;
-}
-
-.nexus-title-left {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    color: #ffffff;
-}
-
-.text-highlight {
-    color: #10b981;
-    display: block; /* Force new line logic or emphasize */
-}
-
-.nexus-description-left {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-.nexus-features-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.nexus-feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.feature-icon-wrapper {
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.feature-icon-wrapper svg {
-    width: 24px;
-    height: 24px;
-    fill: #10b981; /* Green check style */
-}
-
-.feature-text {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.feature-text strong {
-    color: #ffffff;
-    font-size: 1rem;
-}
-
-.feature-text span {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.9rem;
-}
-
-/* Right Column: Visualization Wrapper */
-.nexus-visualization-side {
-    flex: 1;
-    position: relative;
-    height: 600px; /* Container for absolute nodes */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* === NEURAL GRID (HEXAGONAL LAYOUT) === */
-.nexus-visualization {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    /* No margin auto here, let flex handle it */
-}
-
-/* Center Core */
-.nexus-core-container {
-    position: absolute;
-    top: 50%;
+    bottom: 15%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: rgba(16, 185, 129, 0.6);
+    letter-spacing: 0.05em;
+    font-family: monospace;
+    z-index: 5;
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
 }
-
-/* Satellite Nodes - Hexagon Pattern around Center */
-/* Center is 50% 50% */
-/* Radius approx 200px? Using percentages for responsiveness */
-
-.grid-node {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100px; /* Small square nodes per image */
-    padding: 12px;
-    background: rgba(10, 10, 10, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
-}
-
-.node-icon-sm svg {
-    width: 24px;
-    height: 24px;
-    fill: #10b981;
-}
-
-.grid-node span {
-    font-size: 0.8rem;
-    color: #fff;
-    font-weight: 500;
-}
-
-/* POSITIONS (Clockwise starting 12 o'clock?) */
-/* Image shows:
-   Top: Inventario
-   Top Right: Ventas
-   Bottom Right: Finanzas
-   Bottom: Clientes
-   Bottom Left: SAC
-   Top Left: Logística
-*/
-
-/* N1: Inventario (Top Center) */
-.n1 { top: 10%; left: 50%; transform: translateX(-50%); }
-
-/* N2: Ventas (Top Right) */
-.n2 { top: 25%; right: 10%; transform: none; }
-
-/* N3: Finanzas (Bottom Right) */
-.n3 { bottom: 25%; right: 10%; transform: none; }
-
-/* N4: Clientes (Bottom Center) */
-.n4 { bottom: 10%; left: 50%; transform: translateX(-50%); }
-
-/* N5: SAC (Bottom Left) */
-.n5 { bottom: 25%; left: 10%; transform: none; }
-
-/* N6: Logística (Top Left) */
-.n6 { top: 25%; left: 10%; transform: none; }
-
-/* Hover Effects matching design */
-.grid-node:hover {
-    border-color: #10b981;
-    transform: scale(1.1); /* Simple scale */
-    z-index: 20;
-    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
-}
-.n1:hover, .n4:hover { transform: translateX(-50%) scale(1.1); }
-
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 1024px) {
-    .neural-nexus-container.split-layout {
-        flex-direction: column;
-        padding: 40px 20px;
-        gap: 80px; /* Increased gap to prevent overlap */
-    }
-    
-    .nexus-content-side {
-        max-width: 100%;
-        text-align: center;
-        z-index: 30; /* Ensure text is above if overlap happens */
-    }
-    
-    .nexus-features-list {
-        align-items: center; 
-    }
-    
-    .nexus-title-left {
-        font-size: 2.5rem;
-    }
-    
-    .nexus-visualization-side {
-        width: 100%;
-        height: 500px; /* More height for nodes */
-        margin-top: 20px;
-    }
-    
-    /* Adjust node positions for mobile */
-    .grid-node {
-        width: 90px;
-        padding: 10px;
-    }
-    
-    /* Spread out nodes slightly for better visibility */
-    .n1 { top: 5%; }
-    .n4 { bottom: 5%; }
-    .n2 { top: 25%; right: 5%; }
-    .n6 { top: 25%; left: 5%; }
-    .n3 { bottom: 25%; right: 5%; }
-    .n5 { bottom: 25%; left: 5%; }
-}
+/* [Legacy Layout Restored - No Split Layout Rules] */
 
 /* === ANIMATION RESTORED TO ORIGINAL SUBTLE STATE === */
 .hero-rays {
@@ -355,39 +136,70 @@ body {
     z-index: 1;
 }
 
-/* ==================== LEGACY ORBITAL SYSTEM (FOR PROPUESTA.HTML) ==================== */
-/* ==================== LEGACY ORBITAL SYSTEM (IMPROVED) ==================== */
+/* ==================== LEGACY ORBITAL SYSTEM (STRICT CENTER ALIGNMENT) ==================== */
+
+/* Container - Enforce Center */
+.nexus-visualization {
+    margin-top: 40px; 
+    position: relative; /* Anchor */
+    height: 500px; 
+    width: 100%;
+    
+    /* FLEXBOX CENTERING - Used to force core to visual center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center Core - Relative to Flex Center */
+.nexus-core {
+    /* Since parent is Flex Center, position: static would work if it was the only child.
+       But we have absolute children (orbit). 
+       Using absolute centering is safest to overlay. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 2px solid rgba(16, 185, 129, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    
+    background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(0,0,0,0.8) 100%);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+    /* Pulse Animation */
+    animation: core-heartbeat 3s ease-in-out infinite;
+}
+
+/* Orbital System Wrapper - Must Match Center */
 .orbital-system {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    animation: rotate-orbit 80s linear infinite; /* Slower rotation for elegance */
+    /* Rotation Anchor determined by parent size */
+    animation: rotate-orbit 80s linear infinite;
+    pointer-events: none;
 }
 
-/* Container Spacing Fix */
-.nexus-visualization {
-    /* Ensure it doesn't overlap header */
-    margin-top: 40px; 
-    position: relative;
-    height: 500px; /* Explicit height */
-    width: 100%;
-}
-
+/* Nodes - Orbit Logic */
 .orbit-node {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 80px;
-    height: 80px;
+    top: 50%; left: 50%;
+    width: 80px; height: 80px;
     margin-left: -40px;
     margin-top: -40px;
     
-    /* REDUCED RADIUS: 180px (was 260px/280px) to prevent overlapping title */
+    /* Radius: 180px */
     transform: rotate(var(--angle)) translate(180px) rotate(calc(-1 * var(--angle)));
     
-    /* Counter-rotate to keep text upright */
+    /* Counter Rotation to keep text upright */
     animation: counter-spin 80s linear infinite;
     
     display: flex;
@@ -395,7 +207,8 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 20;
+    z-index: 50;
+    pointer-events: auto;
 }
 
 .n1 { --angle: 0deg; }
@@ -448,28 +261,10 @@ body {
     pointer-events: none; /* Let clicks go to icon */
 }
 
-/* === LUMINOUS CORE PULSE (Requested "Pulsaciones Grandes") === */
-.nexus-core {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 140px; height: 140px;
-    border-radius: 50%;
-    border: 2px solid rgba(16, 185, 129, 0.5); /* Base Green */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(0,0,0,0.8) 100%);
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
-    /* Pulse Animation */
-    animation: core-heartbeat 3s ease-in-out infinite;
-}
-
+/* Core Animations defined once */
 @keyframes core-heartbeat {
     0% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); transform: translate(-50%, -50%) scale(1); }
-    50% { box-shadow: 0 0 60px rgba(16, 185, 129, 0.6); transform: translate(-50%, -50%) scale(1.05); } /* Big Glow */
+    50% { box-shadow: 0 0 60px rgba(16, 185, 129, 0.6); transform: translate(-50%, -50%) scale(1.05); } 
     100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); transform: translate(-50%, -50%) scale(1); }
 }
 
