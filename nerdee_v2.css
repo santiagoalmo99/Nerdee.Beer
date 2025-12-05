@@ -363,70 +363,39 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    animation: rotate-orbit 60s linear infinite;
+    animation: rotate-orbit 80s linear infinite; /* Slower rotation for elegance */
+}
+
+/* Container Spacing Fix */
+.nexus-visualization {
+    /* Ensure it doesn't overlap header */
+    margin-top: 40px; 
+    position: relative;
+    height: 500px; /* Explicit height */
+    width: 100%;
 }
 
 .orbit-node {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100px;
-    height: 100px; /* Increased size for touch/click */
-    /* KEY FIX: We rotate the container to position it, then counter-rotate inside or using a specific transform structure */
-    /* Current approach: rotate(angle) translate(radius) rotate(-angle) keeps it upright relative to center? No. */
-    /* Correct approach for upright nodes orbiting: */
-    /* Wrapper rotates: animation rotate-orbit */
-    /* Node rotates OPPOSITE: animation counter-rotate-orbit */
-    margin-left: -50px;
-    margin-top: -50px;
-}
-
-/* Specific Positions using generic 'turn' or manual calculation if not using calc() */
-/* N1: 0deg | N2: 72deg | N3: 144deg | N4: 216deg | N5: 288deg */
-
-.n1 { transform: rotate(0deg) translate(280px) rotate(0deg); }
-.n2 { transform: rotate(72deg) translate(280px) rotate(-72deg); }
-.n3 { transform: rotate(144deg) translate(280px) rotate(-144deg); }
-.n4 { transform: rotate(216deg) translate(280px) rotate(-216deg); }
-.n5 { transform: rotate(288deg) translate(280px) rotate(-288deg); }
-
-/* OR better yet, let's just use the animation I already had but fix the params */
-/* The previous CSS had: 
-   transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-250px) rotate(calc(-1 * var(--angle))); 
-   This works if the parent is static. 
-   If parent .orbital-system rotates, then nodes normally rotate with it. 
-   To keep them upright, nodes need 'animation: counter-rotate 60s linear infinite'
-*/
-
-/* PARENT ROTATES */
-@keyframes rotate-orbit {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* NODES COUNTER-ROTATE TO STAY UPRIGHT */
-.orbit-node {
-    /* Position at specific angles initially */
-    /* This overrides the transform set by specific classes if we are not careful. */
-    /* Let's rely on the parent doing the orbiting. */
-    /* Wait, if parent rotates, child needs to be placed at a radius. */
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    margin-top: -40px;
     
-    position: absolute;
-    top: 50%; left: 50%;
-    transform-origin: center;
-    /* Place at Radius 250px */
-    transform: rotate(var(--angle)) translate(260px) rotate(calc(-1 * var(--angle)));
+    /* REDUCED RADIUS: 180px (was 260px/280px) to prevent overlapping title */
+    transform: rotate(var(--angle)) translate(180px) rotate(calc(-1 * var(--angle)));
     
-    /* Now, if the PARENT rotates, the whole rigid structure rotates. 
-       The nodes will turn upside down. 
-       We need the NODES to rotate locally to counter the parent. */
-    animation: maintain-upright 60s linear infinite reverse;
+    /* Counter-rotate to keep text upright */
+    animation: counter-spin 80s linear infinite;
     
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 20;
 }
 
 .n1 { --angle: 0deg; }
@@ -435,51 +404,14 @@ body {
 .n4 { --angle: 216deg; }
 .n5 { --angle: 288deg; }
 
-@keyframes maintain-upright {
-    from { transform: rotate(var(--angle)) translate(260px) rotate(calc(-1 * var(--angle))) rotate(0deg); }
-    to   { transform: rotate(var(--angle)) translate(260px) rotate(calc(-1 * var(--angle))) rotate(-360deg); }
-}
-/* Wait, combining transforms in keyframes is tricky.
-   Simpler approach: 
-   Parent .orbital-system rotates.
-   Children are placed at radius.
-   Children have a wrapper that rotates in reverse. 
-*/
-
-/* LET'S TRY THE VERIFIED "FERRIS WHEEL" TECHNIQUE */
-.orbital-system {
-    animation: orbit-spin 60s linear infinite;
-}
-@keyframes orbit-spin { 
-    100% { transform: rotate(360deg); } 
-}
-
-.orbit-node {
-    position: absolute;
-    left: 50%; top: 50%;
-    margin: -40px; /* half size */
-    width: 80px; height: 80px;
-    /* Static placement based on angle */
-    transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle))); 
-    /* THIS places them upright. But when parent spins, they will tilt.
-       So we need to ADD rotation to them equal and opposite to parent? 
-       Actually, if parent spins, `transform: rotate(parentAngle)` applies to everything. 
-       
-       Better: 
-       .orbit-node { transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle))) rotate(calc(-1 * var(--parent-rotation))); }
-       We can't get parent rotation easily.
-       
-       Standard CSS Orbit:
-       Wrapper rotates.
-       Item is child of wrapper.
-       Item has animation: counter-spin.
-    */
-    animation: counter-spin 60s linear infinite;
+@keyframes rotate-orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes counter-spin {
-    0% { transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle))) rotate(0deg); }
-    100% { transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle))) rotate(-360deg); }
+    0% { transform: rotate(var(--angle)) translate(180px) rotate(calc(-1 * var(--angle))) rotate(0deg); }
+    100% { transform: rotate(var(--angle)) translate(180px) rotate(calc(-1 * var(--angle))) rotate(-360deg); }
 }
 
 .node-icon {
