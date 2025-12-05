@@ -146,9 +146,9 @@ body {
     width: 100%;
     
     /* FLEXBOX CENTERING - Used to force core to visual center */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 /* Center Core - Relative to Flex Center */
