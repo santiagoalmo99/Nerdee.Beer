@@ -292,65 +292,66 @@ body {
 
 
 /* MOBILE RESPONSIVE */
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .neural-nexus-container.split-layout {
         flex-direction: column;
         padding: 40px 20px;
-        gap: 40px;
+        gap: 80px; /* Increased gap to prevent overlap */
     }
     
     .nexus-content-side {
         max-width: 100%;
         text-align: center;
+        z-index: 30; /* Ensure text is above if overlap happens */
     }
     
     .nexus-features-list {
-        align-items: center; /* Center items */
+        align-items: center; 
     }
     
     .nexus-title-left {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     
     .nexus-visualization-side {
         width: 100%;
-        height: 400px; /* Smaller height on mobile */
+        height: 500px; /* More height for nodes */
+        margin-top: 20px;
     }
     
-    /* Adjust node positions for mobile (Compact circle) */
+    /* Adjust node positions for mobile */
     .grid-node {
-        width: 80px;
-        padding: 8px;
+        width: 90px;
+        padding: 10px;
     }
-    .grid-node span { font-size: 0.7rem; }
     
-    /* Bring in closer */
-    .n1 { top: 0; }
-    .n4 { bottom: 0; }
-    .n2, .n6 { top: 20%; }
-    .n3, .n5 { bottom: 20%; }
-    .n2, .n3 { right: 0; }
-    .n5, .n6 { left: 0; }
+    /* Spread out nodes slightly for better visibility */
+    .n1 { top: 5%; }
+    .n4 { bottom: 5%; }
+    .n2 { top: 25%; right: 5%; }
+    .n6 { top: 25%; left: 5%; }
+    .n3 { bottom: 25%; right: 5%; }
+    .n5 { bottom: 25%; left: 5%; }
 }
 
-/* === ANIMATION VISIBILITY FIX (Opacity 0.4) === */
+/* === ANIMATION VISIBILITY FIX (Refined: Subtle but Visible) === */
 .hero-rays {
     position: absolute;
     inset: 0;
     background-size: 200% 200%;
-    /* Visibly stronger opacity ~0.4 to satisfy "no se ven" complaint */
+    /* Reduced Opacity to 0.25 (User requested "less aggressive") */
     background-image: 
         /* Emerald */
-        linear-gradient(35deg, transparent 0%, rgba(34, 197, 94, 0.4) 20%, transparent 60%),
+        linear-gradient(35deg, transparent 0%, rgba(34, 197, 94, 0.25) 20%, transparent 60%),
         /* Amber */
-        linear-gradient(65deg, transparent 0%, rgba(245, 158, 11, 0.35) 25%, transparent 70%),
+        linear-gradient(65deg, transparent 0%, rgba(245, 158, 11, 0.2) 25%, transparent 70%),
         /* Mirror */
-        linear-gradient(325deg, transparent 0%, rgba(34, 197, 94, 0.4) 20%, transparent 60%),
-        linear-gradient(295deg, transparent 0%, rgba(245, 158, 11, 0.35) 25%, transparent 70%);
+        linear-gradient(325deg, transparent 0%, rgba(34, 197, 94, 0.25) 20%, transparent 60%),
+        linear-gradient(295deg, transparent 0%, rgba(245, 158, 11, 0.2) 25%, transparent 70%);
     
-    /* Moderate Speed */
-    animation: raysPan 12s ease-in-out infinite alternate;
-    filter: saturate(1.5) brightness(1.2);
+    /* Slower Speed (20s) for calmness */
+    animation: raysPan 20s ease-in-out infinite alternate;
+    filter: saturate(1.2) brightness(1.1);
     z-index: 1;
 }
 
