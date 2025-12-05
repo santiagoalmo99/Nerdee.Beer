@@ -1258,13 +1258,13 @@ body {
 }
 /* ==================== ABOUT SECTION (What is Nerdee?) ==================== */
 .section-about {
-    padding: var(--space-6) var(--space-3);  /* 48px 24px - MORE compact */
+    padding: var(--space-8) var(--space-3);  /* 64px 24px - balanced */
 }
 
 .intro-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);  /* 32px - MORE reduced */
+    gap: var(--space-5);  /* 40px - balanced */
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
@@ -1276,27 +1276,27 @@ body {
 
 .section-label {
     display: inline-block;
-    padding: 4px 12px;  /* Even smaller */
+    padding: 6px 16px;  /* Balanced */
     background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 100px;
-    font-size: var(--text-xs);  /* Smaller */
+    font-size: var(--text-sm);  /* 0.875rem - readable */
     color: var(--color-primary);
-    margin-bottom: var(--space-1);  /* 8px - MORE reduced */
+    margin-bottom: var(--space-2);  /* 16px */
 }
 
 .intro-title {
-    font-size: clamp(1.5rem, 4vw, 2rem);  /* Even smaller */
+    font-size: clamp(1.75rem, 4vw, 2.25rem);  /* Balanced - readable */
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: var(--space-1);  /* 8px - MORE reduced */
+    margin-bottom: var(--space-2);  /* 16px */
 }
 
 .intro-description {
-    font-size: var(--text-sm);  /* Smaller */
-    line-height: 1.5;
+    font-size: var(--text-base);  /* 1rem - readable */
+    line-height: 1.6;
     color: rgba(255,255,255,0.7);
-    margin-bottom: var(--space-2);  /* 16px - MORE reduced */
+    margin-bottom: var(--space-3);  /* 24px */
 }
 
 .intro-description strong {
@@ -1306,7 +1306,7 @@ body {
 .intro-benefits {
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);  /* 8px - VERY compact */
+    gap: var(--space-2);  /* 16px - readable spacing */
 }
 
 .benefit-item {
@@ -1316,23 +1316,23 @@ body {
 }
 
 .benefit-icon {
-    width: 24px;  /* Smaller */
-    height: 24px;
+    width: 32px;  /* Balanced size */
+    height: 32px;
     fill: var(--color-primary);
     flex-shrink: 0;
 }
 
 .benefit-item strong {
     display: block;
-    font-size: var(--text-sm);  /* Smaller */
-    margin-bottom: 2px;
+    font-size: var(--text-sm);  /* 0.875rem - readable */
+    margin-bottom: 4px;
     color: var(--color-text);
 }
 
 .benefit-item p {
-    font-size: var(--text-xs);  /* Smaller */
+    font-size: var(--text-sm);  /* 0.875rem - readable */
     color: var(--color-text-muted);
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 /* Data Flow Widget */
@@ -1344,8 +1344,8 @@ body {
 }
 
 .data-flow-widget {
-    width: 360px;  /* Even smaller */
-    height: 360px;
+    width: 400px;  /* Balanced size */
+    height: 400px;
     position: relative;
 }
 
