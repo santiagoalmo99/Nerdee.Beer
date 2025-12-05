@@ -352,6 +352,97 @@ body {
     filter: saturate(1.5) brightness(1.2);
     z-index: 1;
 }
+
+/* ==================== LEGACY ORBITAL SYSTEM (FOR PROPUESTA.HTML) ==================== */
+.orbital-system {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation: rotate-orbit 60s linear infinite;
+}
+
+.orbit-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-250px) rotate(calc(-1 * var(--angle)));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: counter-rotate-orbit 60s linear infinite;
+}
+
+.n1-orbit { --angle: 0deg; } /* Renamed to avoid conflict if needed, or stick to n1 if html uses it */ 
+/* Actually propuesta.html uses n1, n2 etc. If index.html uses n1 for grid, we have a conflict if they share the same class name but different rules. 
+   Index.html uses .grid-node.n1 
+   Propuesta.html uses .orbit-node.n1
+   
+   CSS for .n1 { ... } overrides both? 
+   In my grid CSS, I used .n1 { top: ... } which is generic. 
+   I MUST Scope my Grid CSS to .grid-node.n1 or .neural-grid-system .n1
+   And Scope Orbital CSS to .orbit-node.n1
+*/
+
+.orbit-node.n1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-250px) rotate(0deg); }
+.orbit-node.n2 { transform: translate(-50%, -50%) rotate(72deg) translateY(-250px) rotate(-72deg); }
+.orbit-node.n3 { transform: translate(-50%, -50%) rotate(144deg) translateY(-250px) rotate(-144deg); }
+.orbit-node.n4 { transform: translate(-50%, -50%) rotate(216deg) translateY(-250px) rotate(-216deg); }
+.orbit-node.n5 { transform: translate(-50%, -50%) rotate(288deg) translateY(-250px) rotate(-288deg); }
+
+.node-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.orbit-node .node-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    font-weight: 500;
+    width: 120px;
+}
+
+.connection-beam {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    width: 2px;
+    height: 0; 
+    background: linear-gradient(to top, var(--node-color, #10b981), transparent);
+    transform-origin: top 0;
+    transform: translate(-50%, 0) rotate(calc(var(--angle) + 180deg)); 
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--node-color, #10b981);
+    z-index: -1;
+}
+
+.orbit-node:hover .connection-beam {
+    height: 250px;
+    opacity: 1;
+}
+
+@keyframes rotate-orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes counter-rotate-orbit {
+    from { transform: translate(-50%, -50%) rotate(var(--initial-angle)) translateY(-250px) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(var(--initial-angle)) translateY(-250px) rotate(-360deg); }
 }
 
 @keyframes raysPan {
