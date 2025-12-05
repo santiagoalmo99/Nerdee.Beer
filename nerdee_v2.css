@@ -136,99 +136,92 @@ body {
     z-index: 1;
 }
 
-/* ==================== LEGACY ORBITAL SYSTEM (ZERO-POINT AXIS STRATEGY) ==================== */
+/* ==================== ORBITAL WIDGET (MINIMAL & BULLETPROOF) ==================== */
 
-/* Main Container */
 .nexus-visualization {
-    margin-top: 40px; 
     position: relative;
-    height: 500px; 
     width: 100%;
-    /* No flex here, we use absolute center points */
-    overflow: visible; /* Ensure nodes don't get clipped */
+    height: 500px;
+    margin-top: 40px;
 }
 
-/* THE ZERO-POINT: The exact center pixel of the container */
-/* Both Logic (Orbit) and Visuals (Core) anchor here */
-
-/* Center Core */
+/* Core Button - Absolute Center */
 .nexus-core {
     position: absolute;
-    top: 50%;
     left: 50%;
-    /* Standard Centering */
-    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 140px;
+    height: 140px;
+    margin-left: -70px;  /* Half of width */
+    margin-top: -70px;   /* Half of height */
     
-    width: 140px; height: 140px;
-    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16,185,129,0.1), rgba(0,0,0,0.8));
     border: 2px solid rgba(16, 185, 129, 0.5);
+    border-radius: 50%;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 100;
     
-    background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(0,0,0,0.8) 100%);
     box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
     animation: core-heartbeat 3s ease-in-out infinite;
 }
 
-/* Orbital System - ZERO SIZE WRAPPER at the Center */
+/* Orbital Container */
 .orbital-system {
     position: absolute;
-    top: 50%;
     left: 50%;
-    width: 0;   /* Key Change: No dimension */
-    height: 0;  /* Key Change: No dimension */
-    
-    /* Rotate this 0x0 point. 
-       Use transform-origin 0 0 because the div itself is 0x0 at the center */
-    /* Wait, if it's 0x0, transform-origin center is 0 0. Correct. */
+    top: 50%;
+    width: 360px;   /* Diameter of orbit = 2 * radius */
+    height: 360px;  /* Diameter of orbit = 2 * radius */
+    margin-left: -180px;  /* Half of width */
+    margin-top: -180px;   /* Half of height */
     
     animation: rotate-orbit 80s linear infinite;
     z-index: 50;
 }
 
-/* Nodes - Orbit Logic relative to 0x0 Center */
+/* Individual Nodes */
 .orbit-node {
     position: absolute;
-    /* Do not use top/left 50% here because parent is 0x0 center */
-    top: 0;
-    left: 0;
-    
-    width: 80px; height: 80px;
-    /* Center unit itself */
-    margin-left: -40px; 
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
     margin-top: -40px;
     
-    /* Radius: 180px */
-    transform: rotate(var(--angle)) translate(180px) rotate(calc(-1 * var(--angle)));
+    /* Each node positioned at edge of circle */
+    left: 50%;
+    top: 0;
     
-    /* Counter Rotation stays the same */
-    animation: counter-spin 80s linear infinite;
+    /* Rotate to position, then counter-rotate content */
+    transform-origin: 50% 180px;  /* Origin is center of orbital-system */
+    transform: rotate(var(--angle));
     
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    pointer-events: auto;
 }
 
+/* Counter-rotate the content so text stays upright */
+.orbit-node > * {
+    transform: rotate(calc(-1 * var(--angle)));
+}
+
+/* Node positioning */
 .n1 { --angle: 0deg; }
 .n2 { --angle: 72deg; }
 .n3 { --angle: 144deg; }
 .n4 { --angle: 216deg; }
 .n5 { --angle: 288deg; }
 
+/* Keyframes */
 @keyframes rotate-orbit {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-}
-
-@keyframes counter-spin {
-    0% { transform: rotate(var(--angle)) translate(180px) rotate(calc(-1 * var(--angle))) rotate(0deg); }
-    100% { transform: rotate(var(--angle)) translate(180px) rotate(calc(-1 * var(--angle))) rotate(-360deg); }
 }
 
 .node-icon {
