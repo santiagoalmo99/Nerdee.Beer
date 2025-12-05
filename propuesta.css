@@ -1258,20 +1258,20 @@ body {
 }
 /* ==================== NEW INTRO SECTION (What is Nerdee?) ==================== */
 .section-intro {
-    padding: var(--space-10) var(--space-3);  /* 80px 24px - reduced from 120px */
+    padding: var(--space-10) var(--space-3);  /* 80px 24px */
 }
 
 .intro-layout {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;  /* More space for text, less for widget */
-    gap: var(--space-6);  /* 48px - reduced from 80px */
+    grid-template-columns: 1.3fr 1fr;  /* More space for text */
+    gap: var(--space-8);  /* 64px - balanced */
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .intro-text {
-    max-width: 600px;
+    max-width: 650px;  /* Increased for better text flow */
 }
 
 .section-label {
@@ -1286,17 +1286,17 @@ body {
 }
 
 .intro-title {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);  /* Slightly smaller */
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 24px;
+    margin-bottom: var(--space-2);  /* 16px */
 }
 
 .intro-description {
-    font-size: 1.125rem;
-    line-height: 1.8;
+    font-size: 1rem;  /* Slightly smaller for better fit */
+    line-height: 1.6;
     color: rgba(255,255,255,0.7);
-    margin-bottom: 48px;
+    margin-bottom: var(--space-4);  /* 32px */
 }
 
 .intro-description strong {
@@ -1324,15 +1324,15 @@ body {
 
 .benefit-item strong {
     display: block;
-    font-size: 1rem;
-    margin-bottom: 4px;
+    font-size: 0.9375rem;  /* Slightly smaller */
+    margin-bottom: var(--space-1);  /* 8px */
     color: #fff;
 }
 
 .benefit-item p {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;  /* Smaller for compactness */
     color: rgba(255,255,255,0.6);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* Data Flow Widget */
@@ -1344,8 +1344,8 @@ body {
 }
 
 .data-flow-widget {
-    width: 420px;  /* Reduced from 500px */
-    height: 420px;  /* Reduced from 500px */
+    width: 500px;  /* Keep original size as user requested */
+    height: 500px;
     position: relative;
 }
 
