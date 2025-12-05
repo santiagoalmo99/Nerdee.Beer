@@ -99,6 +99,7 @@ body {
 .hero-rays {
     position: absolute;
     inset: 0;
+}
 /* ==================== SPLIT LAYOUT (UNIFIED DESIGN) ==================== */
 
 .neural-nexus-container.split-layout {
