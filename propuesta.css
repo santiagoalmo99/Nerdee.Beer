@@ -4,37 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ==================== CSS VARIABLES (8px Design System) ==================== */
-:root {
-    /* 8px spacing scale */
-    --space-1: 8px;
-    --space-2: 16px;
-    --space-3: 24px;
-    --space-4: 32px;
-    --space-5: 40px;
-    --space-6: 48px;
-    --space-7: 56px;
-    --space-8: 64px;
-    --space-10: 80px;
-    
-    /* Typography scale */
-    --text-xs: 0.75rem;
-    --text-sm: 0.875rem;
-    --text-base: 1rem;
-    --text-lg: 1.125rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-3xl: 2rem;
-    
-    /* Colors */
-    --color-bg: #000;
-    --color-text: #fff;
-    --color-text-muted: rgba(255,255,255,0.6);
-    --color-primary: #10b981;
-    --color-accent: #f59e0b;
-    --color-border: rgba(255,255,255,0.08);
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -244,14 +213,14 @@ body {
 /* ==================== SECTIONS ==================== */
 .section-dark {
     background: #000;
-    padding: var(--space-8) var(--space-3);  /* 64px 24px */
+    padding: 60px 24px;
 }
 
 .section-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 600;
     text-align: center;
-    margin-bottom: var(--space-2);  /* 16px */
+    margin-bottom: 8px;
 }
 
 .section-intro {
@@ -332,16 +301,16 @@ body {
 /* ==================== FEATURES GRID ==================== */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-3);  /* 24px */
-    margin-top: var(--space-4);  /* 32px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
 }
 
 .feature-card {
     background: rgba(255,255,255,0.02);
-    border: 1px solid var(--color-border);
-    border-radius: var(--space-2);  /* 16px */
-    padding: var(--space-3);  /* 24px */
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 32px 24px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -364,15 +333,15 @@ body {
 }
 
 .feature-icon {
-    width: 48px;  /* Smaller */
-    height: 48px;
+    width: 56px;
+    height: 56px;
     background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.2);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--space-2);  /* 16px */
+    margin-bottom: 20px;
     color: #10b981;
 }
 
@@ -861,7 +830,7 @@ body {
 /* ==================== TIMELINE ==================== */
 .timeline {
     max-width: 800px;
-    margin: var(--space-4) auto var(--space-5);  /* 32px auto 40px */
+    margin: 24px auto 48px;
     position: relative;
 }
 
@@ -878,7 +847,7 @@ body {
 .timeline-item {
     position: relative;
     padding-left: 80px;
-    margin-bottom: var(--space-4);  /* 32px */
+    margin-bottom: 48px;
 }
 
 .timeline-marker {
@@ -964,8 +933,8 @@ body {
 
 /* ==================== CTA SECTION ==================== */
 .section-cta {
-    background: var(--color-bg);
-    padding: var(--space-10) var(--space-3);  /* 80px 24px */
+    background: #000;
+    padding: 120px 24px;
     position: relative;
     overflow: hidden;
 }
@@ -979,7 +948,7 @@ body {
 
 .cta-header {
     text-align: center;
-    margin-bottom: var(--space-7);  /* 56px */
+    margin-bottom: 80px;
     position: relative;
     z-index: 1;
 }
@@ -1004,9 +973,9 @@ body {
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-4);  /* 32px */
+    gap: 32px;
     max-width: 1400px;
-    margin: 0 auto var(--space-8);  /* 64px */
+    margin: 0 auto 80px;
     z-index: 1;
 }
 
@@ -1240,8 +1209,7 @@ body {
     }
 }
 /* ==================== NEW INTRO SECTION (What is Nerdee?) ==================== */
-.section-intro,
-.section-about {
+.section-intro {
     padding: 120px 24px;
 }
 
@@ -1522,29 +1490,24 @@ body {
 
 /* ==================== NEW SUBSCRIPTION SECTION ==================== */
 .section-subscription {
-    padding: var(--space-6) var(--space-3);  /* 48px 24px - compact */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 60px 24px;
 }
 
 .subscription-header {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto var(--space-2);  /* 16px bottom */
+    margin: 0 auto 24px;
 }
 
 .subscription-description {
-    font-size: var(--text-sm);  /* Smaller */
-    line-height: 1.5;
+    font-size: 1.125rem;
+    line-height: 1.8;
     color: rgba(255,255,255,0.7);
-    margin-top: var(--space-1);  /* 8px */
+    margin-top: 8px;
 }
 
 .subscription-value {
-    margin-top: var(--space-1);  /* 8px */
-    margin-bottom: var(--space-2);  /* 16px */
+    margin-top: 24px;
     display: flex;
     justify-content: center;
 }
@@ -1553,10 +1516,10 @@ body {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--space-2) var(--space-4);  /* 16px 32px */
+    padding: 24px 48px;
     background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
     border: 2px solid rgba(16, 185, 129, 0.3);
-    border-radius: var(--space-2);  /* 16px */
+    border-radius: 16px;
 }
 
 .value-label {
@@ -1568,7 +1531,7 @@ body {
 }
 
 .value-amount {
-    font-size: var(--text-3xl);  /* 2rem */
+    font-size: 2.5rem;
     font-weight: 700;
     background: linear-gradient(135deg, #10b981 0%, #f59e0b 100%);
     -webkit-background-clip: text;
@@ -1577,18 +1540,18 @@ body {
 }
 
 .value-amount small {
-    font-size: var(--text-base);  /* 1rem */
+    font-size: 1.25rem;
     opacity: 0.7;
 }
 
 /* Modules Container */
 .modules-container {
     max-width: 1400px;
-    margin: var(--space-2) auto 0;  /* 16px auto 0 */
+    margin: 24px auto 0;
 }
 
 .modules-section {
-    margin-bottom: var(--space-3);  /* 24px */
+    margin-bottom: 80px;
 }
 
 .modules-section.coming-soon {
@@ -1598,12 +1561,12 @@ body {
 .modules-section-title {
     display: flex;
     align-items: center;
-    gap: var(--space-1);  /* 8px */
-    font-size: var(--text-lg);  /* 1.125rem */
+    gap: 12px;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: var(--space-2);  /* 16px */
-    padding-bottom: var(--space-1);  /* 8px */
-    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .section-icon {
