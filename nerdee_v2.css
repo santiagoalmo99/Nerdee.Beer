@@ -99,25 +99,24 @@ body {
 .hero-rays {
     position: absolute;
     inset: 0;
-/* ==================== NEURAL GRID (CLEAN FIX) ==================== */
+/* ==================== NEURAL GRID (ABSOLUTE POSITIONING FIX) ==================== */
 
 .nexus-visualization {
     position: relative;
     width: 100%;
     max-width: 1000px;
-    height: 600px; /* Fixed height to prevent collapse */
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 600px; /* Force fixed height */
+    margin: 40px auto;
+    /* Remove flex centering to allow full absolute control */
+    display: block; 
 }
 
-/* Central Core - Absolute Center */
+/* Central Core */
 .nexus-core-container {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Perfect Center */
     width: 200px;
     height: 200px;
     z-index: 20;
@@ -127,70 +126,76 @@ body {
     flex-direction: column;
 }
 
-/* Neural Grid - Layered Grid System */
+/* Satellite Nodes Container */
 .neural-grid-system {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    pointer-events: none; /* Allow clicks to pass through empty space */
+    pointer-events: none; /* Pass clicks to background */
 }
 
+/* Individual Node Styling */
 .grid-node {
     pointer-events: auto;
-    position: relative;
+    position: absolute; /* Absolute relative to visualization container */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(10, 10, 10, 0.85);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 16px;
     padding: 15px;
     width: 140px;
-    height: auto;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    margin: auto; /* Center in grid cell */
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    z-index: 10;
 }
 
-/* Precise Node Placement */
-/* Top Center */
-.n1 { grid-column: 2; grid-row: 1; transform: translateY(20px); } 
-/* Middle Right */
-.n2 { grid-column: 3; grid-row: 2; transform: translateX(-20px); }
-/* Bottom Center */
-.n3 { grid-column: 2; grid-row: 3; transform: translateY(-20px); }
-/* Middle Left */
-.n4 { grid-column: 1; grid-row: 2; transform: translateX(20px); }
-/* Top Left (Fifth node) */
-.n5 { grid-column: 1; grid-row: 1; transform: translate(30px, 30px); }
+/* === FOOLPROOF COORDINATES (Percentages) === */
+/* N1: Top Center */
+.n1 { top: 5%; left: 50%; transform: translateX(-50%); } 
+
+/* N2: Right Upper */
+.n2 { top: 25%; right: 10%; transform: none; }
+
+/* N3: Right Lower */
+.n3 { bottom: 15%; right: 15%; transform: none; }
+
+/* N4: Left Lower */
+.n4 { bottom: 15%; left: 15%; transform: none; }
+
+/* N5: Left Upper */
+.n5 { top: 25%; left: 10%; transform: none; }
+
 
 .node-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    text-align: center;
 }
 
 .node-content span {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.5px;
 }
 
 .grid-node:hover {
     border-color: var(--node-color);
-    box-shadow: 0 0 25px var(--node-color);
-    transform: scale(1.05) !important; /* Override layout transforms on hover */
+    box-shadow: 0 0 30px var(--node-color);
+    transform: scale(1.1) !important; /* Scale from current position */
     z-index: 30;
 }
+/* Retain translation for N1 on hover */
+.n1:hover { transform: translateX(-50%) scale(1.1) !important; }
 
-/* Fix CSS Variables for colors */
+/* Fix CSS Variables */
 .n1 { --node-color: #10b981; }
 .n2 { --node-color: #f59e0b; }
 .n3 { --node-color: #3b82f6; }
@@ -202,9 +207,10 @@ body {
 @media (max-width: 768px) {
     .nexus-visualization {
         height: auto;
+        display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding: 40px 0;
+        gap: 30px;
+        padding: 40px 20px;
     }
 
     .nexus-core-container {
@@ -212,46 +218,56 @@ body {
         top: auto;
         left: auto;
         transform: none;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .neural-grid-system {
         position: relative;
-        inset: auto;
+        height: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
         gap: 15px;
-        height: auto;
     }
 
     .grid-node {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
         width: 100%;
         margin: 0;
-        transform: none !important; /* Reset all positioning transforms */
     }
     
-    .n5 { grid-column: span 2; } /* Center the odd one */
-    .n1, .n2, .n3, .n4 { grid-column: auto; grid-row: auto; }
+    .n5 { grid-column: span 2; } 
+    .n1:hover, .grid-node:hover { transform: scale(1.02) !important; }
 }
 
-/* === RESTORED PRE-VIBRANT ANIMATION (CORRECT COLORS) === */
+/* === ANIMATION FIX: BOOST VISIBILITY, KEEP ORIGINAL COLORS === */
 .hero-rays {
     position: absolute;
     inset: 0;
-    /* "Subtle" Original Configuration */
     background-size: 200% 200%;
+    /* Visibly stronger opacity (0.3/0.25) but same color hues */
     background-image: 
-        /* Left side rays - Low opacity 0.15/0.12 */
-        linear-gradient(35deg, transparent 0%, rgba(34, 197, 94, 0.15) 10%, transparent 20%),
-        linear-gradient(65deg, transparent 0%, rgba(245, 158, 11, 0.12) 15%, transparent 30%),
-        /* Right side rays - Symmetric Mirror */
-        linear-gradient(325deg, transparent 0%, rgba(34, 197, 94, 0.15) 10%, transparent 20%),
-        linear-gradient(295deg, transparent 0%, rgba(245, 158, 11, 0.12) 15%, transparent 30%);
+        /* Emerald (Left) */
+        linear-gradient(35deg, transparent 0%, rgba(34, 197, 94, 0.3) 20%, transparent 40%),
+        /* Amber (Right-ish) */
+        linear-gradient(65deg, transparent 0%, rgba(245, 158, 11, 0.25) 25%, transparent 50%),
+        /* Mirror Right */
+        linear-gradient(325deg, transparent 0%, rgba(34, 197, 94, 0.3) 20%, transparent 40%),
+        linear-gradient(295deg, transparent 0%, rgba(245, 158, 11, 0.25) 25%, transparent 50%);
     
-    /* Moderate Speed (User asked to increase movement, but not exaggerated) */
-    animation: raysPan 12s ease-in-out infinite alternate;
-    filter: saturate(1.4) brightness(1.1);
+    /* Smooth, visible motion */
+    animation: raysPan 10s ease-in-out infinite alternate;
+    filter: saturate(1.5) brightness(1.2);
+    z-index: 1; /* Ensure it sits above black bg but below content */
+}
+/* Ensure content is above rays */
+.hero-content {
+    position: relative;
+    z-index: 10;
 }
 }
 
