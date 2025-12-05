@@ -1258,13 +1258,13 @@ body {
 }
 /* ==================== ABOUT SECTION (What is Nerdee?) ==================== */
 .section-about {
-    padding: 120px 24px;
+    padding: var(--space-6) var(--space-3);  /* 48px 24px - MORE compact */
 }
 
 .intro-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: var(--space-4);  /* 32px - MORE reduced */
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
@@ -1276,27 +1276,27 @@ body {
 
 .section-label {
     display: inline-block;
-    padding: 8px 20px;
+    padding: 4px 12px;  /* Even smaller */
     background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 100px;
-    font-size: 0.875rem;
-    color: #10b981;
-    margin-bottom: 24px;
+    font-size: var(--text-xs);  /* Smaller */
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);  /* 8px - MORE reduced */
 }
 
 .intro-title {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);  /* Even smaller */
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 24px;
+    margin-bottom: var(--space-1);  /* 8px - MORE reduced */
 }
 
 .intro-description {
-    font-size: 1.125rem;
-    line-height: 1.8;
+    font-size: var(--text-sm);  /* Smaller */
+    line-height: 1.5;
     color: rgba(255,255,255,0.7);
-    margin-bottom: 48px;
+    margin-bottom: var(--space-2);  /* 16px - MORE reduced */
 }
 
 .intro-description strong {
@@ -1306,7 +1306,7 @@ body {
 .intro-benefits {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--space-1);  /* 8px - VERY compact */
 }
 
 .benefit-item {
@@ -1316,23 +1316,23 @@ body {
 }
 
 .benefit-icon {
-    width: 40px;
-    height: 40px;
-    fill: #10b981;
+    width: 24px;  /* Smaller */
+    height: 24px;
+    fill: var(--color-primary);
     flex-shrink: 0;
 }
 
 .benefit-item strong {
     display: block;
-    font-size: 1rem;
-    margin-bottom: 4px;
-    color: #fff;
+    font-size: var(--text-sm);  /* Smaller */
+    margin-bottom: 2px;
+    color: var(--color-text);
 }
 
 .benefit-item p {
-    font-size: 0.9375rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.6;
+    font-size: var(--text-xs);  /* Smaller */
+    color: var(--color-text-muted);
+    line-height: 1.4;
 }
 
 /* Data Flow Widget */
@@ -1344,8 +1344,8 @@ body {
 }
 
 .data-flow-widget {
-    width: 500px;
-    height: 500px;
+    width: 360px;  /* Even smaller */
+    height: 360px;
     position: relative;
 }
 
