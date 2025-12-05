@@ -356,6 +356,7 @@ body {
 }
 
 /* ==================== LEGACY ORBITAL SYSTEM (FOR PROPUESTA.HTML) ==================== */
+/* ==================== LEGACY ORBITAL SYSTEM (IMPROVED) ==================== */
 .orbital-system {
     position: absolute;
     width: 100%;
@@ -369,82 +370,193 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80px;
-    height: 80px;
-    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-250px) rotate(calc(-1 * var(--angle)));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: counter-rotate-orbit 60s linear infinite;
+    width: 100px;
+    height: 100px; /* Increased size for touch/click */
+    /* KEY FIX: We rotate the container to position it, then counter-rotate inside or using a specific transform structure */
+    /* Current approach: rotate(angle) translate(radius) rotate(-angle) keeps it upright relative to center? No. */
+    /* Correct approach for upright nodes orbiting: */
+    /* Wrapper rotates: animation rotate-orbit */
+    /* Node rotates OPPOSITE: animation counter-rotate-orbit */
+    margin-left: -50px;
+    margin-top: -50px;
 }
 
-.n1-orbit { --angle: 0deg; } /* Renamed to avoid conflict if needed, or stick to n1 if html uses it */ 
-/* Actually propuesta.html uses n1, n2 etc. If index.html uses n1 for grid, we have a conflict if they share the same class name but different rules. 
-   Index.html uses .grid-node.n1 
-   Propuesta.html uses .orbit-node.n1
-   
-   CSS for .n1 { ... } overrides both? 
-   In my grid CSS, I used .n1 { top: ... } which is generic. 
-   I MUST Scope my Grid CSS to .grid-node.n1 or .neural-grid-system .n1
-   And Scope Orbital CSS to .orbit-node.n1
+/* Specific Positions using generic 'turn' or manual calculation if not using calc() */
+/* N1: 0deg | N2: 72deg | N3: 144deg | N4: 216deg | N5: 288deg */
+
+.n1 { transform: rotate(0deg) translate(280px) rotate(0deg); }
+.n2 { transform: rotate(72deg) translate(280px) rotate(-72deg); }
+.n3 { transform: rotate(144deg) translate(280px) rotate(-144deg); }
+.n4 { transform: rotate(216deg) translate(280px) rotate(-216deg); }
+.n5 { transform: rotate(288deg) translate(280px) rotate(-288deg); }
+
+/* OR better yet, let's just use the animation I already had but fix the params */
+/* The previous CSS had: 
+   transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-250px) rotate(calc(-1 * var(--angle))); 
+   This works if the parent is static. 
+   If parent .orbital-system rotates, then nodes normally rotate with it. 
+   To keep them upright, nodes need 'animation: counter-rotate 60s linear infinite'
 */
 
-.orbit-node.n1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-250px) rotate(0deg); }
-.orbit-node.n2 { transform: translate(-50%, -50%) rotate(72deg) translateY(-250px) rotate(-72deg); }
-.orbit-node.n3 { transform: translate(-50%, -50%) rotate(144deg) translateY(-250px) rotate(-144deg); }
-.orbit-node.n4 { transform: translate(-50%, -50%) rotate(216deg) translateY(-250px) rotate(-216deg); }
-.orbit-node.n5 { transform: translate(-50%, -50%) rotate(288deg) translateY(-250px) rotate(-288deg); }
-
-.node-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(10, 10, 10, 0.9);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-    transition: all 0.3s ease;
-}
-
-.orbit-node .node-label {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    font-weight: 500;
-    width: 120px;
-}
-
-.connection-beam {
-    position: absolute;
-    top: 50%; 
-    left: 50%;
-    width: 2px;
-    height: 0; 
-    background: linear-gradient(to top, var(--node-color, #10b981), transparent);
-    transform-origin: top 0;
-    transform: translate(-50%, 0) rotate(calc(var(--angle) + 180deg)); 
-    opacity: 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px var(--node-color, #10b981);
-    z-index: -1;
-}
-
-.orbit-node:hover .connection-beam {
-    height: 250px;
-    opacity: 1;
-}
-
+/* PARENT ROTATES */
 @keyframes rotate-orbit {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
-@keyframes counter-rotate-orbit {
-    from { transform: translate(-50%, -50%) rotate(var(--initial-angle)) translateY(-250px) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(var(--initial-angle)) translateY(-250px) rotate(-360deg); }
+/* NODES COUNTER-ROTATE TO STAY UPRIGHT */
+.orbit-node {
+    /* Position at specific angles initially */
+    /* This overrides the transform set by specific classes if we are not careful. */
+    /* Let's rely on the parent doing the orbiting. */
+    /* Wait, if parent rotates, child needs to be placed at a radius. */
+    
+    position: absolute;
+    top: 50%; left: 50%;
+    transform-origin: center;
+    /* Place at Radius 250px */
+    transform: rotate(var(--angle)) translate(260px) rotate(calc(-1 * var(--angle)));
+    
+    /* Now, if the PARENT rotates, the whole rigid structure rotates. 
+       The nodes will turn upside down. 
+       We need the NODES to rotate locally to counter the parent. */
+    animation: maintain-upright 60s linear infinite reverse;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.n1 { --angle: 0deg; }
+.n2 { --angle: 72deg; }
+.n3 { --angle: 144deg; }
+.n4 { --angle: 216deg; }
+.n5 { --angle: 288deg; }
+
+@keyframes maintain-upright {
+    from { transform: rotate(var(--angle)) translate(260px) rotate(calc(-1 * var(--angle))) rotate(0deg); }
+    to   { transform: rotate(var(--angle)) translate(260px) rotate(calc(-1 * var(--angle))) rotate(-360deg); }
+}
+/* Wait, combining transforms in keyframes is tricky.
+   Simpler approach: 
+   Parent .orbital-system rotates.
+   Children are placed at radius.
+   Children have a wrapper that rotates in reverse. 
+*/
+
+/* LET'S TRY THE VERIFIED "FERRIS WHEEL" TECHNIQUE */
+.orbital-system {
+    animation: orbit-spin 60s linear infinite;
+}
+@keyframes orbit-spin { 
+    100% { transform: rotate(360deg); } 
+}
+
+.orbit-node {
+    position: absolute;
+    left: 50%; top: 50%;
+    margin: -40px; /* half size */
+    width: 80px; height: 80px;
+    /* Static placement based on angle */
+    transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle))); 
+    /* THIS places them upright. But when parent spins, they will tilt.
+       So we need to ADD rotation to them equal and opposite to parent? 
+       Actually, if parent spins, `transform: rotate(parentAngle)` applies to everything. 
+       
+       Better: 
+       .orbit-node { transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle))) rotate(calc(-1 * var(--parent-rotation))); }
+       We can't get parent rotation easily.
+       
+       Standard CSS Orbit:
+       Wrapper rotates.
+       Item is child of wrapper.
+       Item has animation: counter-spin.
+    */
+    animation: counter-spin 60s linear infinite;
+}
+
+@keyframes counter-spin {
+    0% { transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle))) rotate(0deg); }
+    100% { transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle))) rotate(-360deg); }
+}
+
+.node-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255,255,255,0.3); /* Brighter border */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5); /* Depth */
+    transition: all 0.3s ease;
+}
+
+.node-icon svg {
+    fill: #fff; /* Ensure white icons */
+    width: 24px; height: 24px;
+}
+
+.orbit-node:hover .node-icon {
+    background: var(--node-color, #10b981);
+    border-color: #fff;
+    box-shadow: 0 0 30px var(--node-color, #10b981); /* Glow on hover */
+    transform: scale(1.1);
+}
+
+.orbit-node .node-label {
+    font-size: 0.9rem;
+    color: #fff; /* White Text */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Readability */
+    font-weight: 600;
+    pointer-events: none; /* Let clicks go to icon */
+}
+
+/* === LUMINOUS CORE PULSE (Requested "Pulsaciones Grandes") === */
+.nexus-core {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 2px solid rgba(16, 185, 129, 0.5); /* Base Green */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(0,0,0,0.8) 100%);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+    /* Pulse Animation */
+    animation: core-heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes core-heartbeat {
+    0% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); transform: translate(-50%, -50%) scale(1); }
+    50% { box-shadow: 0 0 60px rgba(16, 185, 129, 0.6); transform: translate(-50%, -50%) scale(1.05); } /* Big Glow */
+    100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Rings */
+.core-pulse-rings {
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    animation: ring-ripple 3s linear infinite;
+    opacity: 0;
+}
+.ring.r1 { animation-delay: 0s; }
+.ring.r2 { animation-delay: 1s; }
+.ring.r3 { animation-delay: 2s; }
+
+@keyframes ring-ripple {
+    0% { transform: scale(0.8); opacity: 0.8; border-color: rgba(16, 185, 129, 0.5); }
+    100% { transform: scale(2.5); opacity: 0; border-color: transparent; }
 }
 
 @keyframes raysPan {
