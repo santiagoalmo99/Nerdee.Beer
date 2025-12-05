@@ -1865,8 +1865,95 @@ body {
 
 /* FIX: Expand intro section container */
 .section-intro .container {
-    border: 5px solid red !important; /* DEBUG: CONFIRM CSS LOAD */
     max-width: 1800px !important;
+    width: 95% !important;
+    padding: 0;
+}
+
+/* FIX: Ensure intro text is not too wide but container is */
+.intro-text {
+    max-width: 650px; /* Optimal reading width */
+    margin-right: auto; /* Align left with widget on right */
+}
+
+/* FIX: Mobile Responsiveness */
+@media (max-width: 968px) {
+    .container {
+        padding: 0 24px; /* More breathing room */
+        overflow-x: hidden; /* Prevent scroll */
+    }
+
+    .intro-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .intro-text {
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .intro-benefits {
+        align-items: center;
+        text-align: left;
+        max-width: 400px; /* Constrain benefits width */
+        margin: 0 auto;
+    }
+
+    .data-flow-widget {
+        width: 100%;
+        max-width: 320px; /* Even smaller to be safe */
+        height: 320px;
+        margin: 0 auto;
+        transform: scale(0.85); /* Ensure it fits */
+    }
+    
+    .flow-node {
+        transform: 
+            translateX(-50%) 
+            translateY(-50%) 
+            rotate(var(--angle)) 
+            translateY(-140px) 
+            rotate(calc(-1 * var(--angle)));
+        width: 80px; /* Smaller nodes */
+        padding: 8px 4px;
+        font-size: 0.7rem;
+    }
+
+    .section-subscription {
+        padding: 48px 16px;
+    }
+
+    /* FIX: Subscription Price Card Overflow */
+    .subscription-value, .value-badge {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 24px; /* Reduced padding */
+    }
+    
+    .value-amount {
+        font-size: 2rem; /* Smaller font */
+        word-break: break-word;
+    }
+
+    /* FIX: Module Grid Overflow - Force Single Column */
+    .active-modules, .modules-grid {
+        grid-template-columns: 1fr !important; /* Single column stack */
+        gap: 24px;
+        width: 100%;
+    }
+
+    .subscription-benefits {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+}
     width: 95% !important;
     padding: 0;
 }
