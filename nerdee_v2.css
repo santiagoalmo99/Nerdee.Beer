@@ -136,29 +136,27 @@ body {
     z-index: 1;
 }
 
-/* ==================== LEGACY ORBITAL SYSTEM (STRICT CENTER ALIGNMENT) ==================== */
+/* ==================== LEGACY ORBITAL SYSTEM (ZERO-POINT AXIS STRATEGY) ==================== */
 
-/* Container - Enforce Center */
+/* Main Container */
 .nexus-visualization {
     margin-top: 40px; 
-    position: relative; /* Anchor */
+    position: relative;
     height: 500px; 
     width: 100%;
-    
-    /* FLEXBOX CENTERING - Used to force core to visual center */
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    /* No flex here, we use absolute center points */
+    overflow: visible; /* Ensure nodes don't get clipped */
 }
 
-/* Center Core - Relative to Flex Center */
+/* THE ZERO-POINT: The exact center pixel of the container */
+/* Both Logic (Orbit) and Visuals (Core) anchor here */
+
+/* Center Core */
 .nexus-core {
-    /* Since parent is Flex Center, position: static would work if it was the only child.
-       But we have absolute children (orbit). 
-       Using absolute centering is safest to overlay. */
     position: absolute;
     top: 50%;
     left: 50%;
+    /* Standard Centering */
     transform: translate(-50%, -50%);
     
     width: 140px; height: 140px;
@@ -172,34 +170,41 @@ body {
     
     background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(0,0,0,0.8) 100%);
     box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
-    /* Pulse Animation */
     animation: core-heartbeat 3s ease-in-out infinite;
 }
 
-/* Orbital System Wrapper - Must Match Center */
+/* Orbital System - ZERO SIZE WRAPPER at the Center */
 .orbital-system {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    /* Rotation Anchor determined by parent size */
+    top: 50%;
+    left: 50%;
+    width: 0;   /* Key Change: No dimension */
+    height: 0;  /* Key Change: No dimension */
+    
+    /* Rotate this 0x0 point. 
+       Use transform-origin 0 0 because the div itself is 0x0 at the center */
+    /* Wait, if it's 0x0, transform-origin center is 0 0. Correct. */
+    
     animation: rotate-orbit 80s linear infinite;
-    pointer-events: none;
+    z-index: 50;
 }
 
-/* Nodes - Orbit Logic */
+/* Nodes - Orbit Logic relative to 0x0 Center */
 .orbit-node {
     position: absolute;
-    top: 50%; left: 50%;
+    /* Do not use top/left 50% here because parent is 0x0 center */
+    top: 0;
+    left: 0;
+    
     width: 80px; height: 80px;
-    margin-left: -40px;
+    /* Center unit itself */
+    margin-left: -40px; 
     margin-top: -40px;
     
     /* Radius: 180px */
     transform: rotate(var(--angle)) translate(180px) rotate(calc(-1 * var(--angle)));
     
-    /* Counter Rotation to keep text upright */
+    /* Counter Rotation stays the same */
     animation: counter-spin 80s linear infinite;
     
     display: flex;
@@ -207,7 +212,6 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 50;
     pointer-events: auto;
 }
 
