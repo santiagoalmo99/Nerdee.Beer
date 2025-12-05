@@ -99,16 +99,18 @@ body {
 .hero-rays {
     position: absolute;
     inset: 0;
-    background: 
+    /* Increased size to allow panning */
+    background-size: 200% 200%;
+    background-image: 
         linear-gradient(35deg, transparent 0%, rgba(34, 197, 94, 0.15) 10%, transparent 20%),
         linear-gradient(65deg, transparent 0%, rgba(245, 158, 11, 0.12) 15%, transparent 30%);
-    animation: raysMove 18s ease-in-out infinite; /* Speed up 10% */
-    filter: saturate(1.4) brightness(1.1); /* Enhance perception */
+    animation: raysPan 15s ease-in-out infinite alternate;
+    filter: saturate(1.4) brightness(1.1);
 }
 
-@keyframes raysMove {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.05); } /* Subtle pulse */
+@keyframes raysPan {
+    0% { background-position: 0% 0%; opacity: 0.8; }
+    100% { background-position: 100% 50%; opacity: 1; }
 }
 
 .hero-content {
@@ -2162,12 +2164,28 @@ body {
     opacity: 1;
 }
 
-/* Dynamic colors and angles */
+/* Dynamic colors and angles (RESTORED) */
 .n1 { --node-color: #10b981; --angle: 0deg; }
 .n2 { --node-color: #f59e0b; --angle: 72deg; }
 .n3 { --node-color: #3b82f6; --angle: 144deg; }
 .n4 { --node-color: #8b5cf6; --angle: 216deg; }
 .n5 { --node-color: #ec4899; --angle: 288deg; }
+
+/* Pulse Glow Animation for Pricing */
+.pricing-card.pulse-glow {
+    animation: borderPulse 3s infinite ease-in-out;
+}
+
+@keyframes borderPulse {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1); 
+        border-color: rgba(16, 185, 129, 0.3);
+    }
+    50% { 
+        box-shadow: 0 0 50px rgba(16, 185, 129, 0.4); 
+        border-color: rgba(16, 185, 129, 0.8);
+    }
+}
 
 /* Nexus Monitor */
 .nexus-monitor {
