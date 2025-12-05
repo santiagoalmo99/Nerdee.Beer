@@ -244,14 +244,14 @@ body {
 /* ==================== SECTIONS ==================== */
 .section-dark {
     background: #000;
-    padding: 60px 24px;
+    padding: var(--space-8) var(--space-3);  /* 64px 24px */
 }
 
 .section-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 600;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);  /* 16px */
 }
 
 .section-intro {
@@ -332,16 +332,16 @@ body {
 /* ==================== FEATURES GRID ==================== */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-top: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-3);  /* 24px */
+    margin-top: var(--space-4);  /* 32px */
 }
 
 .feature-card {
     background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 32px 24px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--space-2);  /* 16px */
+    padding: var(--space-3);  /* 24px */
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -364,15 +364,15 @@ body {
 }
 
 .feature-icon {
-    width: 56px;
-    height: 56px;
+    width: 48px;  /* Smaller */
+    height: 48px;
     background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.2);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-2);  /* 16px */
     color: #10b981;
 }
 
@@ -861,7 +861,7 @@ body {
 /* ==================== TIMELINE ==================== */
 .timeline {
     max-width: 800px;
-    margin: 24px auto 48px;
+    margin: var(--space-4) auto var(--space-5);  /* 32px auto 40px */
     position: relative;
 }
 
@@ -878,7 +878,7 @@ body {
 .timeline-item {
     position: relative;
     padding-left: 80px;
-    margin-bottom: 48px;
+    margin-bottom: var(--space-4);  /* 32px */
 }
 
 .timeline-marker {
@@ -964,8 +964,8 @@ body {
 
 /* ==================== CTA SECTION ==================== */
 .section-cta {
-    background: #000;
-    padding: 120px 24px;
+    background: var(--color-bg);
+    padding: var(--space-10) var(--space-3);  /* 80px 24px */
     position: relative;
     overflow: hidden;
 }
@@ -979,7 +979,7 @@ body {
 
 .cta-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: var(--space-7);  /* 56px */
     position: relative;
     z-index: 1;
 }
@@ -1004,25 +1004,7 @@ body {
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-    max-width: 1400px;
-    margin: 0 auto 80px;
-    z-index: 1;
-}
-
-.step-card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 32px 24px;
-    text-align: center;
-    position: relative;
-    transition: all 0.4s ease;
-    z-index: 1;
-}
-
-.step-card:hover {
-    transform: translateY(-12px);
+    gap: var(--space-4);  /* 32px */
     border-color: rgba(16, 185, 129, 0.4);
     box-shadow: 0 20px 60px rgba(16, 185, 129, 0.2);
     background: rgba(255,255,255,0.04);
