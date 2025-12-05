@@ -1865,6 +1865,7 @@ body {
 
 /* FIX: Expand intro section container */
 .section-intro .container {
+    border: 5px solid red !important; /* DEBUG: CONFIRM CSS LOAD */
     max-width: 1800px !important;
     width: 95% !important;
     padding: 0;
