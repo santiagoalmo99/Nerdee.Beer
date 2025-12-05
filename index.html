@@ -56,89 +56,109 @@
     <!-- Descripción General -->
     <section class="section-dark section-intro">
         <div class="container">
-            <div class="intro-layout">
-                <div class="intro-text">
-                    <span class="section-label">¿Qué es Nerdee?</span>
-                    <h2 class="intro-title">
-                        El cerebro digital que <span class="gradient-text">unifica tu operación</span>
-                    </h2>
-                    <p class="intro-description">
-                        Nerdee integra, analiza y conecta <strong>todas las áreas de tu empresa</strong> 
-                        en un solo sistema inteligente, entregando <strong>insights accionables en tiempo real</strong>.
+            <div class="neural-nexus-container">
+                <div class="nexus-header">
+                    <span class="section-label-center">¿Qué es Nerdee?</span>
+                    <h2 class="nexus-title">El Cerebro Digital de tu Distribución</h2>
+                    <p class="nexus-description">
+                        Un sistema vivo que conecta, analiza y optimiza cada latido de tu operación en tiempo real.
                     </p>
-                    
-                    <div class="intro-benefits">
-                        <div class="benefit-item">
-                            <svg class="benefit-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                            <div>
-                                <strong>Integración Total</strong>
-                                <p>Conecta inventarios, ventas, finanzas, clientes y más</p>
-                            </div>
+                </div>
+
+                <div class="nexus-visualization">
+                    <!-- Central Core -->
+                    <div class="nexus-core">
+                        <div class="core-pulse-rings">
+                            <div class="ring r1"></div>
+                            <div class="ring r2"></div>
+                            <div class="ring r3"></div>
                         </div>
-                        <div class="benefit-item">
-                            <svg class="benefit-icon" viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/></svg>
-                            <div>
-                                <strong>Inteligencia en Vivo</strong>
-                                <p>Datos actualizados y análisis predictivo constante</p>
-                            </div>
+                        <div class="core-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                         </div>
-                        <div class="benefit-item">
-                            <svg class="benefit-icon" viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
-                            <div>
-                                <strong>Optimización Continua</strong>
-                                <p>El sistema aprende y mejora con cada operación</p>
-                            </div>
+                        <div class="core-label">NERDEE</div>
+                    </div>
+
+                    <!-- Dynamic Intelligence Monitor -->
+                    <div class="nexus-monitor">
+                        <span class="monitor-label">STATUS:</span>
+                        <span class="monitor-text" id="nexusStatus">SISTEMA ACTIVO - ESPERANDO INPUT</span>
+                    </div>
+
+                    <!-- Orbital Nodes -->
+                    <div class="orbital-system" id="orbitalSystem">
+                        <!-- Node 1: Inventario -->
+                        <div class="orbit-node n1" data-status="SINCRONIZANDO STOCK EN TIEMPO REAL..." data-color="#10b981">
+                            <div class="node-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-5 12H9v-2h6v2zm5-7H4V4h16v3z"/></svg></div>
+                            <div class="node-label">Inventario</div>
+                            <div class="connection-beam"></div>
+                        </div>
+
+                        <!-- Node 2: Ventas -->
+                        <div class="orbit-node n2" data-status="PROYECTANDO DEMANDA FUTURA..." data-color="#f59e0b">
+                            <div class="node-icon"><svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg></div>
+                            <div class="node-label">Ventas</div>
+                            <div class="connection-beam"></div>
+                        </div>
+
+                        <!-- Node 3: Clientes -->
+                        <div class="orbit-node n3" data-status="ANALIZANDO PREFERENCIAS DE CONSUMO..." data-color="#3b82f6">
+                            <div class="node-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+                            <div class="node-label">Clientes</div>
+                            <div class="connection-beam"></div>
+                        </div>
+
+                        <!-- Node 4: Logística -->
+                        <div class="orbit-node n4" data-status="OPTIMIZANDO RUTAS DE ENTREGA..." data-color="#8b5cf6">
+                            <div class="node-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+                            <div class="node-label">Logística</div>
+                            <div class="connection-beam"></div>
+                        </div>
+
+                        <!-- Node 5: Finanzas -->
+                        <div class="orbit-node n5" data-status="CALCULANDO MARGEN DE RENTABILIDAD..." data-color="#ec4899">
+                            <div class="node-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg></div>
+                            <div class="node-label">Finanzas</div>
+                            <div class="connection-beam"></div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="intro-visual">
-                    <!-- Data Flow Widget -->
-                    <div class="data-flow-widget">
-                        <div class="flow-center">
-                            <div class="center-pulse"></div>
-                            <svg class="center-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                            <span class="center-label">NERDEE</span>
-                        </div>
-                        
-                        <div class="flow-nodes">
-                            <div class="flow-node" style="--angle: 0deg; --delay: 0s">
-                                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-5 12H9v-2h6v2zm5-7H4V4h16v3z"/></svg>
-                                <span>Inventario</span>
-                            </div>
-                            <div class="flow-node" style="--angle: 60deg; --delay: 0.1s">
-                                <svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
-                                <span>Ventas</span>
-                            </div>
-                            <div class="flow-node" style="--angle: 120deg; --delay: 0.2s">
-                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
-                                <span>Finanzas</span>
-                            </div>
-                            <div class="flow-node" style="--angle: 180deg; --delay: 0.3s">
-                                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                                <span>Clientes</span>
-                            </div>
-                            <div class="flow-node" style="--angle: 240deg; --delay: 0.4s">
-                                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                                <span>SAC</span>
-                            </div>
-                            <div class="flow-node" style="--angle: 300deg; --delay: 0.5s">
-                                <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                                <span>Logística</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Animated data particles -->
-                        <div class="data-particles">
-                            <div class="particle" style="--angle: 0deg; --duration: 3s"></div>
-                            <div class="particle" style="--angle: 60deg; --duration: 2.5s"></div>
-                            <div class="particle" style="--angle: 120deg; --duration: 3.5s"></div>
-                            <div class="particle" style="--angle: 180deg; --duration: 2.8s"></div>
-                            <div class="particle" style="--angle: 240deg; --duration: 3.2s"></div>
-                            <div class="particle" style="--angle: 300deg; --duration: 2.7s"></div>
-                        </div>
-                    </div>
-                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const nodes = document.querySelectorAll('.orbit-node');
+                        const statusText = document.getElementById('nexusStatus');
+                        const core = document.querySelector('.nexus-core');
+                        const orbitalSystem = document.getElementById('orbitalSystem');
+
+                        nodes.forEach(node => {
+                            node.addEventListener('mouseenter', () => {
+                                // Update Status
+                                statusText.textContent = node.dataset.status;
+                                statusText.style.color = node.dataset.color;
+                                statusText.style.textShadow = `0 0 10px ${node.dataset.color}`;
+                                
+                                // Energize Core
+                                core.style.borderColor = node.dataset.color;
+                                core.style.boxShadow = `0 0 60px ${node.dataset.color}40`;
+                                
+                                // Pause Rotation for focus
+                                orbitalSystem.style.animationPlayState = 'paused';
+                            });
+
+                            node.addEventListener('mouseleave', () => {
+                                statusText.textContent = "SISTEMA ACTIVO - ESPERANDO INPUT";
+                                statusText.style.color = "#10b981";
+                                statusText.style.textShadow = "none";
+                                
+                                core.style.borderColor = "rgba(16, 185, 129, 0.3)";
+                                core.style.boxShadow = "0 0 50px rgba(16, 185, 129, 0.4)";
+                                
+                                orbitalSystem.style.animationPlayState = 'running';
+                            });
+                        });
+                    });
+                </script>
             </div>
         </div>
     </section>
@@ -486,14 +506,14 @@
                 </div>
 
                 <!-- Suscripción -->
-                <div class="pricing-card">
+                <div class="pricing-card pulse-glow">
                     <div class="pricing-badge recurring">Mensual</div>
                     <h3>Suscripción Nerdee</h3>
                     <p>Acceso completo a todos los módulos actuales y futuros</p>
                     <div class="price">
                         <span class="currency">$</span>
-                        <span class="amount">690.000</span>
-                        <span class="period">COP/mes</span>
+                        <span class="amount">690.000 COP</span>
+                        <span class="period">/mes</span>
                     </div>
                     <ul class="pricing-features">
                         <li>
