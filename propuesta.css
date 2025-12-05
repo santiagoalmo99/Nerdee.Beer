@@ -1542,15 +1542,34 @@ body {
 
 /* Responsive */
 @media (max-width: 968px) {
+    .container {
+        padding: 0 16px;
+    }
+
     .intro-layout {
-        grid-template-columns: 1fr;
-        gap: 48px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 100%;
     }
     
-    .data-flow-widget {
-        width: 400px;
-        height: 400px;
+    .intro-text {
+        max-width: 100%;
+        text-align: center;
         margin: 0 auto;
+    }
+
+    .intro-benefits {
+        align-items: center;
+        text-align: left; /* Keep benefit text left-aligned for readability */
+    }
+
+    .data-flow-widget {
+        width: 100%;
+        max-width: 350px; /* Smaller for mobile */
+        height: 350px;
+        margin: 0 auto;
+        transform: scale(0.9); /* Slight scale down if needed */
     }
     
     .flow-node {
@@ -1558,8 +1577,28 @@ body {
             translateX(-50%) 
             translateY(-50%) 
             rotate(var(--angle)) 
-            translateY(-160px) 
+            translateY(-140px) /* Closer radius */
             rotate(calc(-1 * var(--angle)));
+        width: 90px;
+        padding: 12px 8px;
+        font-size: 0.75rem;
+    }
+
+    .section-subscription {
+        padding: 48px 16px;
+        height: auto; /* Allow auto height on mobile */
+        min-height: auto;
+    }
+
+    .active-modules {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Full width cards */
+        gap: 16px;
+    }
+
+    .subscription-benefits {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
     }
 }
 
