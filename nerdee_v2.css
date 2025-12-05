@@ -100,14 +100,15 @@ body {
     position: absolute;
     inset: 0;
     background: 
-        linear-gradient(35deg, transparent 0%, rgba(34, 197, 94, 0.08) 10%, transparent 20%),
-        linear-gradient(65deg, transparent 0%, rgba(245, 158, 11, 0.06) 15%, transparent 30%);
-    animation: raysMove 20s ease-in-out infinite;
+        linear-gradient(35deg, transparent 0%, rgba(34, 197, 94, 0.15) 10%, transparent 20%),
+        linear-gradient(65deg, transparent 0%, rgba(245, 158, 11, 0.12) 15%, transparent 30%);
+    animation: raysMove 18s ease-in-out infinite; /* Speed up 10% */
+    filter: saturate(1.4) brightness(1.1); /* Enhance perception */
 }
 
 @keyframes raysMove {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); } /* Subtle pulse */
 }
 
 .hero-content {
@@ -1869,6 +1870,12 @@ body {
     width: 100% !important;
     padding: 0;
     margin: 0;
+    
+    /* VISUAL FIX: Smooth bottom transition */
+    padding-bottom: 120px !important; /* Prevent cut-off */
+    background: linear-gradient(to bottom, #000 0%, #050505 80%, black 100%); /* Subtle depth */
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%); /* Fade out abrupt edge */
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 }
 
 /* FIX: Ensure intro text is not too wide but container is */
@@ -2131,6 +2138,75 @@ body {
     text-align: center;
     font-weight: 500;
     width: 120px;
+}
+
+/* Connection Lines (Beams) */
+.connection-beam {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    width: 2px;
+    height: 0; 
+    background: linear-gradient(to top, var(--node-color, #10b981), transparent);
+    transform-origin: top 0; /* Anchor at node center */
+    /* Rotate to cancel counter-rotation and point to center */
+    transform: translate(-50%, 0) rotate(calc(var(--angle) + 180deg)); 
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--node-color, #10b981);
+    z-index: -1;
+}
+
+.orbit-node:hover .connection-beam {
+    height: 250px; /* Exact distance to center */
+    opacity: 1;
+}
+
+/* Dynamic colors and angles */
+.n1 { --node-color: #10b981; --angle: 0deg; }
+.n2 { --node-color: #f59e0b; --angle: 72deg; }
+.n3 { --node-color: #3b82f6; --angle: 144deg; }
+.n4 { --node-color: #8b5cf6; --angle: 216deg; }
+.n5 { --node-color: #ec4899; --angle: 288deg; }
+
+/* Nexus Monitor */
+.nexus-monitor {
+    position: absolute;
+    bottom: 20%;
+    text-align: center;
+    z-index: 30;
+    font-family: 'Courier New', monospace; /* Tech feel */
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.monitor-label {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.monitor-text {
+    font-size: 1rem;
+    color: #10b981;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+@media (max-width: 968px) {
+    .nexus-monitor {
+        position: relative;
+        bottom: auto;
+        margin-top: -20px;
+        margin-bottom: 30px;
+    }
+    
+    /* On mobile, show beams partially or hide */
+    .connection-beam { display: none; }
 }
 
 @keyframes rotate-orbit {
