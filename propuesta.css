@@ -1263,26 +1263,25 @@ body {
     overflow: hidden;
 }
 
-/* Enhanced background effect */
+/* Stronger background glow */
 .section-intro::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
-    filter: blur(60px);
-    opacity: 0.8;
+    background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.35) 0%, transparent 80%);
+    filter: blur(100px);
+    opacity: 0.95;
+    z-index: 0;
 }
 
-.intro-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;  /* Equal columns for better balance */
-    gap: var(--space-10);  /* 80px - more breathing room */
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
+.intro-text {
+    max-width: 420px; /* narrower for optimal line length */
+    line-height: 1.7;
     position: relative;
     z-index: 1;
 }
+
+
 
 .intro-text {
     max-width: 550px;  /* Narrower for better line length */
