@@ -1276,20 +1276,22 @@ body {
     z-index: 0;
 }
 
-/* Restored Grid Layout */
+/* Restored Grid Layout - HARD FIX */
 .intro-layout {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: var(--space-8);  /* 64px */
+    gap: var(--space-8);
     align-items: center;
     max-width: 1400px;
+    width: 100%;  /* FORCE FULL WIDTH */
     margin: 0 auto;
     position: relative;
     z-index: 1;
 }
 
 .intro-text {
-    max-width: 620px; /* wider for less line breaks */
+    width: 100%; /* Occupy full grid cell */
+    max-width: 650px; /* Relaxed max-width */
     line-height: 1.7;
     position: relative;
     z-index: 1;
