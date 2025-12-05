@@ -1222,7 +1222,8 @@ body {
     }
 }
 /* ==================== NEW INTRO SECTION (What is Nerdee?) ==================== */
-.section-intro {
+.section-intro,
+.section-about {
     padding: 120px 24px;
 }
 
