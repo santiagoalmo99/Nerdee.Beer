@@ -4,7 +4,38 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Force rebuild - 2025-12-04 19:45 */
+/* Force rebuild - 2025-12-04 19:50 */
+
+/* ==================== CSS VARIABLES (8px Design System) ==================== */
+:root {
+    /* 8px spacing scale */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+    --space-6: 48px;
+    --space-7: 56px;
+    --space-8: 64px;
+    --space-10: 80px;
+    
+    /* Typography scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    
+    /* Colors */
+    --color-bg: #000;
+    --color-text: #fff;
+    --color-text-muted: rgba(255,255,255,0.6);
+    --color-primary: #10b981;
+    --color-accent: #f59e0b;
+    --color-border: rgba(255,255,255,0.08);
+}
 
 * {
     margin: 0;
@@ -215,14 +246,14 @@ body {
 /* ==================== SECTIONS ==================== */
 .section-dark {
     background: #000;
-    padding: 60px 24px;
+    padding: var(--space-8) var(--space-3);  /* 64px 24px - Compact */
 }
 
 .section-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 600;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);  /* 16px */
 }
 
 .section-intro {
@@ -303,16 +334,16 @@ body {
 /* ==================== FEATURES GRID ==================== */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-top: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-3);  /* 24px */
+    margin-top: var(--space-4);  /* 32px */
 }
 
 .feature-card {
     background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 32px 24px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--space-2);  /* 16px */
+    padding: var(--space-3);  /* 24px */
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -703,7 +734,7 @@ body {
 /* ==================== PRICING ==================== */
 .section-pricing {
     background: linear-gradient(180deg, #0f0520 0%, #1a0a30 50%, #0a0515 100%);
-    padding: 120px 24px;
+    padding: var(--space-8) var(--space-3);  /* 64px 24px */
     position: relative;
     overflow: hidden;
 }
@@ -723,225 +754,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 32px;
-    max-width: 900px;
-    margin: 48px auto 32px;
-}
-
-.pricing-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 40px 32px;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.pricing-card.highlight {
-    border-color: rgba(16, 185, 129, 0.5);
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
-}
-
-.pricing-card:hover {
-    transform: translateY(-8px);
-}
-
-.pricing-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    border-radius: 100px;
-    font-size: 0.75rem;
-    color: #10b981;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.pricing-badge.recurring {
-    background: rgba(245, 158, 11, 0.1);
-    border-color: rgba(245, 158, 11, 0.3);
-    color: #f59e0b;
-}
-
-.pricing-card h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.pricing-card > p {
-    font-size: 0.9375rem;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 32px;
-}
-
-.price {
-    margin-bottom: 32px;
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-}
-
-.price .currency {
-    font-size: 1.5rem;
-    color: rgba(255,255,255,0.6);
-}
-
-.price .amount {
-    font-size: 3rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #10b981 0%, #f59e0b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.price .period {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.6);
-}
-
-.pricing-features {
-    list-style: none;
-}
-
-.pricing-features li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 0;
-    font-size: 0.9375rem;
-    color: rgba(255,255,255,0.8);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.pricing-features li:last-child {
-    border-bottom: none;
-}
-
-.pricing-features .icon-mono-sm {
-    color: #10b981;
-}
-
-.pricing-note {
-    text-align: center;
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.5);
-}
-
-/* ==================== TIMELINE ==================== */
-.timeline {
-    max-width: 800px;
-    margin: 24px auto 48px;
-    position: relative;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, #10b981 0%, #f59e0b 100%);
-}
-
-.timeline-item {
-    position: relative;
-    padding-left: 80px;
-    margin-bottom: 48px;
-}
-
-.timeline-marker {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #10b981 0%, #22c55e 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    font-weight: 700;
-    font-size: 1.5rem;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-}
-
-.timeline-marker.week-2 {
-    background: linear-gradient(135deg, #22c55e 0%, #f59e0b 100%);
-}
-
-.timeline-marker.week-3 {
-    background: linear-gradient(135deg, #f59e0b 0%, #fb923c 100%);
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
-}
-
-.timeline-content {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 24px;
-}
-
-.timeline-content h4 {
-    font-size: 1.125rem;
-    margin-bottom: 12px;
-}
-
-.timeline-content ul {
-    list-style: none;
-}
-
-.timeline-content li {
-    padding: 8px 0;
-    color: rgba(255,255,255,0.7);
-    font-size: 0.9375rem;
-}
-
-.timeline-content li::before {
-    content: '→';
-    margin-right: 8px;
-    color: #10b981;
-}
-
-.progress-timeline {
-    margin-top: 60px;
-}
-
-.progress-bar-container {
-    width: 100%;
-    height: 8px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 100px;
-    overflow: hidden;
-    margin-bottom: 16px;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #10b981 0%, #f59e0b 100%);
-    border-radius: 100px;
-    transition: width 2s ease;
-}
-
-.progress-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.5);
-}
-
-/* ==================== CTA SECTION ==================== */
-.section-cta {
-    background: #000;
-    padding: 120px 24px;
-    position: relative;
-    overflow: hidden;
-}
-
-.section-cta::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -1492,7 +1304,11 @@ body {
 
 /* ==================== NEW SUBSCRIPTION SECTION ==================== */
 .section-subscription {
-    padding: 60px 24px;
+    padding: var(--space-6) var(--space-3);  /* 48px 24px - Compact */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .subscription-header {
